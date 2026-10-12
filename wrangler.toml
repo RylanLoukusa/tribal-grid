@@ -6,6 +6,9 @@ name = "tribal-grid"
 main = "src/server/worker.js"
 compatibility_date = "2026-09-01"
 
+# Cloudflare creates the DNS record and certificate for this on deploy.
+routes = [{ pattern = "tribalgrid.app", custom_domain = true }]
+
 [assets]
 directory = "public"
 binding = "ASSETS"
