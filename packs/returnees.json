@@ -3,7 +3,7 @@
   "pool": {
     "tag": "returnee"
   },
-  "reviewed": false,
+  "reviewed": true,
   "grids": [
     {
       "n": 1,
@@ -245,5 +245,6 @@
         18
       ]
     }
-  ]
+  ],
+  "reviewedAt": "2026-10-12T04:34:43.967Z"
 }
