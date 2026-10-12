@@ -1,0 +1,27 @@
+{
+  "id": "2026-10-22",
+  "number": 12,
+  "show": "survivor",
+  "rows": [
+    "era-1-20",
+    "age-40-plus",
+    "season-50"
+  ],
+  "cols": [
+    "state-florida",
+    "woman",
+    "played-idol"
+  ],
+  "counts": [
+    14,
+    150,
+    14,
+    14,
+    81,
+    19,
+    4,
+    12,
+    7
+  ],
+  "reviewed": false
+}

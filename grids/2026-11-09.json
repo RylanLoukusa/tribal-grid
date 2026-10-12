@@ -1,0 +1,27 @@
+{
+  "id": "2026-11-09",
+  "number": 30,
+  "show": "survivor",
+  "rows": [
+    "found-idol",
+    "jury",
+    "era-31-40"
+  ],
+  "cols": [
+    "season-20",
+    "top-three-boot",
+    "medevac-or-quit"
+  ],
+  "counts": [
+    12,
+    11,
+    11,
+    16,
+    17,
+    12,
+    6,
+    28,
+    10
+  ],
+  "reviewed": false
+}

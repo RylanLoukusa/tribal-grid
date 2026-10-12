@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Tribal Grid</title>
+<meta name="description" content="A daily Survivor trivia grid. Name castaways who fit both clues. The rarer your pick, the better your score.">
+<meta name="theme-color" content="#12141a">
+<meta property="og:title" content="Tribal Grid">
+<meta property="og:description" content="A daily Survivor trivia grid. Name castaways who fit both clues. The rarer your pick, the better your score.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<!--APP-->
+<div class="wrap">
+  <header>
+    <div class="brand">
+      <h1><a href="#" id="home-link">Tribal <span>Grid</span></a></h1>
+      <div class="meta-col">
+        <div class="meta" id="meta"></div>
+        <div class="next-drop" id="next-drop" hidden></div>
+      </div>
+    </div>
+    <nav class="shows" aria-label="Show">
+      <button class="show" aria-current="true">Survivor</button>
+      <button class="show" disabled>Love Island USA<small>June</small></button>
+      <button class="show" disabled>The Traitors<small>Jan</small></button>
+    </nav>
+    <nav class="tabs" aria-label="Sections">
+      <button class="tab" id="tab-today" aria-current="page">Today</button>
+      <button class="tab" id="tab-archive">Archive &amp; packs</button>
+    </nav>
+  </header>
+
+  <div class="challenge" id="challenge" hidden></div>
+  <div class="loading" id="loading">Loading today's grid…</div>
+  <div class="error" id="error" hidden></div>
+
+  <main id="game" hidden>
+    <div class="status">
+      <div class="stat"><b id="s-wrong">9</b><span>Misses left</span></div>
+      <div class="stat"><b id="s-correct">0/9</b><span>Correct</span></div>
+      <div class="stat"><b id="s-score">900</b><span>Score (low wins)</span></div>
+    </div>
+
+    <div class="board" id="board" role="grid" aria-label="Grid"></div>
+    <p class="board-hint" id="board-hint"></p>
+
+    <div class="actions">
+      <button class="btn primary" id="btn-submit">Submit grid</button>
+      <button class="btn" id="btn-practice">Practice grid</button>
+      <button class="btn" id="btn-daily" hidden>Back to today</button>
+    </div>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <section class="share-card" id="share-card" hidden aria-labelledby="share-title">
+      <div class="share-top">
+        <div>
+          <div class="share-label" id="share-title">Your score</div>
+          <div class="share-score" id="share-score">0</div>
+          <div class="share-sub" id="share-sub"></div>
+          <div class="share-math" id="share-math"></div>
+        </div>
+        <pre class="share-emoji" id="share-emoji" aria-hidden="true"></pre>
+      </div>
+      <div class="share-next" id="share-next" hidden></div>
+      <label class="share-link-label" for="share-link">Share link</label>
+      <input id="share-link" class="share-link" readonly>
+      <div class="share-actions">
+        <button class="btn primary" id="btn-share">Share</button>
+        <button class="btn" id="btn-copy-link">Copy link</button>
+        <button class="btn" id="btn-copy-text">Copy result</button>
+      </div>
+      <pre class="share" id="share-text" hidden></pre>
+    </section>
+
+    <div class="stats-row" id="stats" hidden>
+      <div class="stat"><b id="st-played">0</b><span>Played</span></div>
+      <div class="stat"><b id="st-streak">0</b><span>Streak</span></div>
+      <div class="stat"><b id="st-avg">–</b><span>Avg score</span></div>
+      <div class="stat"><b id="st-best">–</b><span>Best score</span></div>
+    </div>
+    <div class="ad-slot" id="ad-game" data-slot="game" hidden></div>
+  </main>
+
+  <main id="archive-view" hidden>
+    <section class="unlock" id="unlock-archive"></section>
+    <section class="arch-section">
+      <h2>Past grids</h2>
+      <div class="arch-grid" id="arch-daily"></div>
+    </section>
+    <section class="arch-section">
+      <h2>Grid packs</h2>
+      <p class="arch-note">Themed sets of 10 grids built from one slice of Survivor history. Rarity is scored against everyone who plays the pack.</p>
+      <div class="packs" id="arch-packs"></div>
+      <p class="arch-note more">More packs are on the way, including single-season and theme packs. Buying Everything includes every future pack.</p>
+    </section>
+    <section class="arch-section restore">
+      <h2>Bought on another device?</h2>
+      <p class="arch-note" id="restore-codes"></p>
+      <form id="restore-form" class="restore-form">
+        <label for="restore-code" class="sr">Restore code</label>
+        <input id="restore-code" placeholder="Restore code, e.g. 7KQ2M9XPLA" maxlength="12" autocomplete="off" spellcheck="false">
+        <button class="btn" type="submit">Restore</button>
+      </form>
+    </section>
+  </main>
+
+  <details open id="how">
+    <summary>How to play</summary>
+    <ul>
+      <li>Pick a square and name a castaway who fits both its row and its column. Every US season that has finished airing counts.</li>
+      <li>Right answers are free, and you can swap a right answer for a rarer one any time before you submit. You get 9 misses in total.</li>
+      <li>Each right answer scores the percent of players who picked the same person, so a pick 3% of players made adds 3 points. Your score is those percents added up, with 100 for each empty square. Low wins: a perfect grid of rare picks scores under 50, and a blank grid scores 900.</li>
+      <li>When you submit, tap any square to see every right answer, rarest first.</li>
+      <li>Right answers are colour-coded by how few players picked them:
+        <span class="tiers"><span class="tier-chip t-legendary">🟪 Legendary, under 1%</span><span class="tier-chip t-rare">🟦 Rare, 1–5%</span><span class="tier-chip t-uncommon">🟩 Uncommon, 5–15%</span><span class="tier-chip t-common">🟨 Common, 15%+</span><span class="tier-chip">⬛ Empty</span></span></li>
+      <li>A new grid comes out every day at midnight Eastern.</li>
+    </ul>
+  </details>
+  <details>
+    <summary>About</summary>
+    <p>Castaway facts come from <a href="https://github.com/doehm/survivoR" target="_blank" rel="noopener">survivoR</a>, an open dataset by Dan Oehm (MIT licence). "Listed as from" uses the hometown shown on any of their seasons. Seasons still airing aren't counted, so nothing here spoils an episode.</p>
+    <p>Rarity starts from how well known each castaway is and shifts to real picks as people submit. Think an answer was marked wrong? Submit the grid, tap that square and use "Report a problem".</p>
+  </details>
+  <p class="foot">A fan-made game. Not affiliated with CBS, Paramount or Survivor.</p>
+</div>
+
+<div class="sheet-bg" id="sheet" hidden>
+  <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-q">
+    <div class="q" id="sheet-q"></div>
+    <input id="guess-input" type="text" autocomplete="off" autocapitalize="words" spellcheck="false" placeholder="Type a castaway's name" aria-label="Castaway name">
+    <ul class="opts" id="opts"></ul>
+    <div class="hint">Enter picks the highlighted name. Esc closes.</div>
+  </div>
+</div>
+
+<div class="sheet-bg" id="answers" hidden>
+  <div class="sheet answers-sheet" role="dialog" aria-modal="true" aria-labelledby="answers-title">
+    <div class="answers-head">
+      <h3 id="answers-title"></h3>
+      <button class="close" id="answers-close" aria-label="Close">×</button>
+    </div>
+    <div class="answers-meta" id="answers-meta"></div>
+    <ol class="answers-list" id="answers-list"></ol>
+    <div id="answers-report"></div>
+  </div>
+</div>
+<!--/APP-->
+<script type="module" src="/app.js"></script>
+</body>
+</html>

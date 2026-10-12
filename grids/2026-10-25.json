@@ -1,0 +1,27 @@
+{
+  "id": "2026-10-25",
+  "number": 15,
+  "show": "survivor",
+  "rows": [
+    "one-season",
+    "ind-immunity",
+    "top-three-boot"
+  ],
+  "cols": [
+    "state-texas",
+    "returnee-season",
+    "winner"
+  ],
+  "counts": [
+    41,
+    26,
+    17,
+    10,
+    87,
+    38,
+    11,
+    26,
+    5
+  ],
+  "reviewed": false
+}

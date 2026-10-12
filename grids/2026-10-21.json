@@ -1,0 +1,27 @@
+{
+  "id": "2026-10-21",
+  "number": 11,
+  "show": "survivor",
+  "rows": [
+    "out-with-advantage",
+    "winner",
+    "tribe-blue"
+  ],
+  "cols": [
+    "ind-immunity-3",
+    "three-plus",
+    "returnee-season"
+  ],
+  "counts": [
+    6,
+    7,
+    13,
+    22,
+    12,
+    31,
+    28,
+    22,
+    63
+  ],
+  "reviewed": false
+}

@@ -1,0 +1,27 @@
+{
+  "id": "2026-10-11",
+  "number": 1,
+  "show": "survivor",
+  "rows": [
+    "era-31-40",
+    "state-texas",
+    "tribe-orange"
+  ],
+  "cols": [
+    "ind-immunity",
+    "finalist-never-won",
+    "swapped"
+  ],
+  "counts": [
+    74,
+    21,
+    149,
+    10,
+    5,
+    22,
+    45,
+    14,
+    98
+  ],
+  "reviewed": false
+}

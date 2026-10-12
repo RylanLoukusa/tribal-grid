@@ -1,0 +1,27 @@
+{
+  "id": "2026-10-16",
+  "number": 6,
+  "show": "survivor",
+  "rows": [
+    "ind-immunity",
+    "era-31-40",
+    "age-under-25"
+  ],
+  "cols": [
+    "lost-fire",
+    "state-california",
+    "non-idol-advantage"
+  ],
+  "counts": [
+    8,
+    51,
+    38,
+    7,
+    48,
+    24,
+    5,
+    45,
+    14
+  ],
+  "reviewed": false
+}

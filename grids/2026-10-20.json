@@ -1,0 +1,27 @@
+{
+  "id": "2026-10-20",
+  "number": 10,
+  "show": "survivor",
+  "rows": [
+    "jury",
+    "never-merged",
+    "finalist"
+  ],
+  "cols": [
+    "era-1-10",
+    "age-under-25",
+    "ind-immunity"
+  ],
+  "counts": [
+    72,
+    86,
+    160,
+    58,
+    53,
+    5,
+    23,
+    26,
+    97
+  ],
+  "reviewed": false
+}

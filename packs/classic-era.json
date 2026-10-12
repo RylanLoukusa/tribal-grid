@@ -1,0 +1,252 @@
+{
+  "id": "classic-era",
+  "pool": {
+    "seasons": [
+      1,
+      20
+    ]
+  },
+  "reviewed": false,
+  "grids": [
+    {
+      "n": 1,
+      "rows": [
+        "final-four",
+        "ind-immunity",
+        "most-confessionals"
+      ],
+      "cols": [
+        "age-under-25",
+        "three-plus",
+        "found-idol"
+      ],
+      "counts": [
+        20,
+        18,
+        17,
+        26,
+        16,
+        15,
+        4,
+        10,
+        9
+      ]
+    },
+    {
+      "n": 2,
+      "rows": [
+        "age-40-plus",
+        "finalist-never-won",
+        "winner"
+      ],
+      "cols": [
+        "returnee",
+        "era-11-20",
+        "state-california"
+      ],
+      "counts": [
+        10,
+        33,
+        10,
+        13,
+        15,
+        10,
+        14,
+        13,
+        6
+      ]
+    },
+    {
+      "n": 3,
+      "rows": [
+        "tribe-red",
+        "era-1-10",
+        "returnee-season"
+      ],
+      "cols": [
+        "ind-immunity-3",
+        "medevac-or-quit",
+        "woman"
+      ],
+      "counts": [
+        9,
+        5,
+        29,
+        11,
+        7,
+        75,
+        16,
+        9,
+        32
+      ]
+    },
+    {
+      "n": 4,
+      "rows": [
+        "swapped",
+        "three-plus",
+        "top-three-boot"
+      ],
+      "cols": [
+        "tribe-blue",
+        "tribe-purple",
+        "most-confessionals"
+      ],
+      "counts": [
+        57,
+        22,
+        17,
+        16,
+        9,
+        10,
+        16,
+        7,
+        4
+      ]
+    },
+    {
+      "n": 5,
+      "rows": [
+        "returnee",
+        "jury",
+        "one-season"
+      ],
+      "cols": [
+        "state-texas",
+        "age-under-25",
+        "found-idol"
+      ],
+      "counts": [
+        4,
+        15,
+        18,
+        8,
+        37,
+        20,
+        14,
+        54,
+        8
+      ]
+    },
+    {
+      "n": 6,
+      "rows": [
+        "era-21-40",
+        "season-8",
+        "tribe-green"
+      ],
+      "cols": [
+        "ind-immunity",
+        "state-california",
+        "finalist"
+      ],
+      "counts": [
+        22,
+        12,
+        18,
+        14,
+        4,
+        7,
+        13,
+        11,
+        10
+      ]
+    },
+    {
+      "n": 7,
+      "rows": [
+        "medevac-or-quit",
+        "final-four",
+        "top-three-boot"
+      ],
+      "cols": [
+        "swapped",
+        "woman",
+        "returnee-season"
+      ],
+      "counts": [
+        12,
+        5,
+        9,
+        62,
+        40,
+        41,
+        17,
+        40,
+        15
+      ]
+    },
+    {
+      "n": 8,
+      "rows": [
+        "played-idol",
+        "era-1-10",
+        "man"
+      ],
+      "cols": [
+        "tribe-blue",
+        "returnee",
+        "tribe-red"
+      ],
+      "counts": [
+        9,
+        11,
+        8,
+        46,
+        31,
+        34,
+        40,
+        31,
+        42
+      ]
+    },
+    {
+      "n": 9,
+      "rows": [
+        "three-plus",
+        "ind-immunity",
+        "season-8"
+      ],
+      "cols": [
+        "jury",
+        "era-21-40",
+        "age-under-25"
+      ],
+      "counts": [
+        19,
+        16,
+        8,
+        63,
+        22,
+        26,
+        16,
+        5,
+        4
+      ]
+    },
+    {
+      "n": 10,
+      "rows": [
+        "age-40-plus",
+        "swapped",
+        "tribe-orange"
+      ],
+      "cols": [
+        "never-merged",
+        "found-idol",
+        "one-season"
+      ],
+      "counts": [
+        35,
+        6,
+        60,
+        44,
+        21,
+        128,
+        19,
+        9,
+        40
+      ]
+    }
+  ]
+}

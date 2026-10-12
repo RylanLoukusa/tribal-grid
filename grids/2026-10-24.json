@@ -1,0 +1,27 @@
+{
+  "id": "2026-10-24",
+  "number": 14,
+  "show": "survivor",
+  "rows": [
+    "finalist-never-won",
+    "era-21-40",
+    "never-merged"
+  ],
+  "cols": [
+    "returnee",
+    "age-under-25",
+    "man"
+  ],
+  "counts": [
+    28,
+    15,
+    39,
+    82,
+    71,
+    161,
+    4,
+    53,
+    119
+  ],
+  "reviewed": false
+}

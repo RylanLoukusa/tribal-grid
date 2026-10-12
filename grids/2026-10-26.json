@@ -1,0 +1,27 @@
+{
+  "id": "2026-10-26",
+  "number": 16,
+  "show": "survivor",
+  "rows": [
+    "out-with-advantage",
+    "non-idol-advantage",
+    "tribe-blue"
+  ],
+  "cols": [
+    "age-40-plus",
+    "era-21-30",
+    "swapped"
+  ],
+  "counts": [
+    5,
+    8,
+    26,
+    10,
+    5,
+    48,
+    47,
+    63,
+    128
+  ],
+  "reviewed": false
+}

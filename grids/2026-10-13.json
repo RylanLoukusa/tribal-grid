@@ -1,0 +1,27 @@
+{
+  "id": "2026-10-13",
+  "number": 3,
+  "show": "survivor",
+  "rows": [
+    "never-merged",
+    "medevac-or-quit",
+    "winner"
+  ],
+  "cols": [
+    "age-40-plus",
+    "era-1-10",
+    "returnee"
+  ],
+  "counts": [
+    72,
+    58,
+    4,
+    14,
+    7,
+    14,
+    5,
+    11,
+    31
+  ],
+  "reviewed": false
+}

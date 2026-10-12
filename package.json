@@ -1,0 +1,25 @@
+{
+  "name": "tribal-grid",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A daily rarity-scored trivia grid for reality TV fans. Launching with Survivor.",
+  "type": "module",
+  "engines": {
+    "node": ">=22.5"
+  },
+  "scripts": {
+    "fetch-data": "node scripts/fetch-data.mjs",
+    "build-data": "node scripts/build-castaways.mjs",
+    "generate": "node scripts/generate-grids.mjs",
+    "generate-packs": "node scripts/generate-packs.mjs",
+    "review": "node scripts/review-grid.mjs",
+    "bundle": "node scripts/bundle-data.mjs",
+    "dev": "node --disable-warning=ExperimentalWarning src/server/node.mjs",
+    "test": "node --disable-warning=ExperimentalWarning --test test/*.test.mjs",
+    "build-preview": "node scripts/build-preview.mjs",
+    "deploy": "wrangler deploy"
+  },
+  "devDependencies": {
+    "wrangler": "4.40.0"
+  }
+}

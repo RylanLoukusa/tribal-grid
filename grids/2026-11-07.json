@@ -1,0 +1,27 @@
+{
+  "id": "2026-11-07",
+  "number": 28,
+  "show": "survivor",
+  "rows": [
+    "season-16",
+    "second-chance-island",
+    "era-11-20"
+  ],
+  "cols": [
+    "never-merged",
+    "played-idol",
+    "ind-immunity-3"
+  ],
+  "counts": [
+    6,
+    5,
+    5,
+    17,
+    18,
+    14,
+    63,
+    14,
+    16
+  ],
+  "reviewed": false
+}

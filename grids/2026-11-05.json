@@ -1,0 +1,27 @@
+{
+  "id": "2026-11-05",
+  "number": 26,
+  "show": "survivor",
+  "rows": [
+    "finalist-never-won",
+    "age-40-plus",
+    "three-plus"
+  ],
+  "cols": [
+    "era-41-50",
+    "tribe-red",
+    "tribe-blue"
+  ],
+  "counts": [
+    26,
+    17,
+    30,
+    31,
+    29,
+    47,
+    7,
+    20,
+    22
+  ],
+  "reviewed": false
+}

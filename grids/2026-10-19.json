@@ -1,0 +1,27 @@
+{
+  "id": "2026-10-19",
+  "number": 9,
+  "show": "survivor",
+  "rows": [
+    "finalist-never-won",
+    "season-31",
+    "returnee"
+  ],
+  "cols": [
+    "found-idol",
+    "era-21-30",
+    "man"
+  ],
+  "counts": [
+    22,
+    25,
+    39,
+    6,
+    12,
+    10,
+    48,
+    49,
+    63
+  ],
+  "reviewed": false
+}

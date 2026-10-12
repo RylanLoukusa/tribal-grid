@@ -1,0 +1,27 @@
+{
+  "id": "2026-11-02",
+  "number": 23,
+  "show": "survivor",
+  "rows": [
+    "era-21-30",
+    "jury",
+    "tribe-yellow"
+  ],
+  "cols": [
+    "season-20",
+    "ind-immunity",
+    "medevac-or-quit"
+  ],
+  "counts": [
+    6,
+    62,
+    12,
+    16,
+    160,
+    12,
+    7,
+    55,
+    9
+  ],
+  "reviewed": false
+}

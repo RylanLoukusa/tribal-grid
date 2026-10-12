@@ -1,0 +1,20 @@
+# Cloudflare Workers + D1. Nothing here is deployed until someone runs `npm run deploy`.
+# First-time setup (needs a Cloudflare account):
+#   npx wrangler d1 create tribal-grid        -> paste the database_id below
+#   npx wrangler d1 migrations apply tribal-grid --remote
+name = "tribal-grid"
+main = "src/server/worker.js"
+compatibility_date = "2026-09-01"
+
+[assets]
+directory = "public"
+binding = "ASSETS"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "tribal-grid"
+database_id = "REPLACE_WITH_YOUR_D1_DATABASE_ID"
+migrations_dir = "migrations"
+
+[vars]
+REQUIRE_REVIEW = "1"

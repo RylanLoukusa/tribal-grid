@@ -1,0 +1,27 @@
+{
+  "id": "2026-10-12",
+  "number": 2,
+  "show": "survivor",
+  "rows": [
+    "era-11-20",
+    "era-41-50",
+    "finalist"
+  ],
+  "cols": [
+    "state-california",
+    "found-idol",
+    "three-plus"
+  ],
+  "counts": [
+    66,
+    26,
+    17,
+    33,
+    48,
+    7,
+    30,
+    49,
+    18
+  ],
+  "reviewed": false
+}

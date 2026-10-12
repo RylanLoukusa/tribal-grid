@@ -1,0 +1,27 @@
+{
+  "id": "2026-10-17",
+  "number": 7,
+  "show": "survivor",
+  "rows": [
+    "era-21-40",
+    "top-three-boot",
+    "woman"
+  ],
+  "cols": [
+    "three-plus",
+    "tribe-red",
+    "state-texas"
+  ],
+  "counts": [
+    25,
+    74,
+    21,
+    8,
+    33,
+    11,
+    15,
+    70,
+    24
+  ],
+  "reviewed": false
+}

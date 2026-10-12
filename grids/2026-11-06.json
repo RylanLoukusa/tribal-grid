@@ -1,0 +1,27 @@
+{
+  "id": "2026-11-06",
+  "number": 27,
+  "show": "survivor",
+  "rows": [
+    "era-21-30",
+    "era-1-20",
+    "ind-immunity"
+  ],
+  "cols": [
+    "season-34",
+    "zero-jury-votes",
+    "tribe-orange"
+  ],
+  "counts": [
+    10,
+    11,
+    45,
+    5,
+    8,
+    53,
+    10,
+    26,
+    45
+  ],
+  "reviewed": false
+}

@@ -1,0 +1,27 @@
+{
+  "id": "2026-10-27",
+  "number": 17,
+  "show": "survivor",
+  "rows": [
+    "era-11-20",
+    "finalist",
+    "season-20"
+  ],
+  "cols": [
+    "most-confessionals",
+    "found-idol",
+    "state-california"
+  ],
+  "counts": [
+    13,
+    26,
+    66,
+    33,
+    49,
+    30,
+    10,
+    12,
+    7
+  ],
+  "reviewed": false
+}

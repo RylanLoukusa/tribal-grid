@@ -1,0 +1,27 @@
+{
+  "id": "2026-10-29",
+  "number": 19,
+  "show": "survivor",
+  "rows": [
+    "era-1-10",
+    "ind-immunity",
+    "winner"
+  ],
+  "cols": [
+    "state-florida",
+    "returnee",
+    "one-season"
+  ],
+  "counts": [
+    9,
+    31,
+    119,
+    19,
+    86,
+    140,
+    4,
+    31,
+    17
+  ],
+  "reviewed": false
+}

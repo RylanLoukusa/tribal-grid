@@ -1,0 +1,27 @@
+{
+  "id": "2026-10-18",
+  "number": 8,
+  "show": "survivor",
+  "rows": [
+    "tribe-purple",
+    "era-41-50",
+    "era-1-20"
+  ],
+  "cols": [
+    "final-four",
+    "age-40-plus",
+    "first-boot"
+  ],
+  "counts": [
+    37,
+    27,
+    6,
+    47,
+    31,
+    10,
+    79,
+    70,
+    21
+  ],
+  "reviewed": false
+}

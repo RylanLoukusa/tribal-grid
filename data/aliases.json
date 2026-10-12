@@ -1,0 +1,16 @@
+{
+  "_note": "Extra names people search by that survivoR doesn't carry (maiden or married names, common nicknames). Keyed by survivoR full_name; the build fails if a key stops matching.",
+  "Susan Hawk": ["Sue Hawk"],
+  "Amber Mariano": ["Amber Brkich"],
+  "Elisabeth Filarski": ["Elisabeth Hasselbeck"],
+  "Rob Mariano": ["Boston Rob"],
+  "Jon Dalton": ["Jonny Fairplay", "Johnny Fairplay"],
+  "John Cochran": ["Cochran"],
+  "Kim Spradlin-Wolfe": ["Kim Spradlin"],
+  "Stephenie LaGrossa Kendrick": ["Stephenie LaGrossa"],
+  "Ricard Foye": ["Ricard Foyé"],
+  "Yam Yam Arocho": ["Yamil Arocho"],
+  "Q Burdette": ["Quintavius Burdette"],
+  "Jenna Lewis-Dougherty": ["Jenna Lewis"],
+  "Kelly Shinn": ["Purple Kelly"]
+}

@@ -1,0 +1,27 @@
+{
+  "id": "2026-10-15",
+  "number": 5,
+  "show": "survivor",
+  "rows": [
+    "era-21-30",
+    "man",
+    "state-new-york"
+  ],
+  "cols": [
+    "returnee-season",
+    "out-with-advantage",
+    "jury"
+  ],
+  "counts": [
+    64,
+    8,
+    93,
+    70,
+    28,
+    198,
+    22,
+    4,
+    36
+  ],
+  "reviewed": false
+}

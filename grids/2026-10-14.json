@@ -1,0 +1,27 @@
+{
+  "id": "2026-10-14",
+  "number": 4,
+  "show": "survivor",
+  "rows": [
+    "one-season",
+    "tribe-green",
+    "season-20"
+  ],
+  "cols": [
+    "ind-immunity-3",
+    "played-idol",
+    "final-four"
+  ],
+  "counts": [
+    20,
+    55,
+    101,
+    9,
+    7,
+    21,
+    8,
+    8,
+    17
+  ],
+  "reviewed": false
+}

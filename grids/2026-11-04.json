@@ -1,0 +1,27 @@
+{
+  "id": "2026-11-04",
+  "number": 25,
+  "show": "survivor",
+  "rows": [
+    "returnee-season",
+    "returnee",
+    "top-three-boot"
+  ],
+  "cols": [
+    "found-idol",
+    "winner",
+    "era-21-40"
+  ],
+  "counts": [
+    48,
+    31,
+    96,
+    48,
+    31,
+    82,
+    11,
+    5,
+    56
+  ],
+  "reviewed": false
+}

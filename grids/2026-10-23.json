@@ -1,0 +1,27 @@
+{
+  "id": "2026-10-23",
+  "number": 13,
+  "show": "survivor",
+  "rows": [
+    "final-four",
+    "state-california",
+    "era-11-20"
+  ],
+  "cols": [
+    "found-idol",
+    "season-34",
+    "tribe-orange"
+  ],
+  "counts": [
+    60,
+    11,
+    39,
+    35,
+    5,
+    40,
+    26,
+    4,
+    28
+  ],
+  "reviewed": false
+}

@@ -1,0 +1,27 @@
+{
+  "id": "2026-10-28",
+  "number": 18,
+  "show": "survivor",
+  "rows": [
+    "man",
+    "season-40",
+    "final-four"
+  ],
+  "cols": [
+    "played-idol",
+    "tribe-yellow",
+    "three-plus"
+  ],
+  "counts": [
+    58,
+    73,
+    16,
+    15,
+    5,
+    9,
+    56,
+    42,
+    24
+  ],
+  "reviewed": false
+}

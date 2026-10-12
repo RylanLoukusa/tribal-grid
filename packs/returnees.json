@@ -1,0 +1,249 @@
+{
+  "id": "returnees",
+  "pool": {
+    "tag": "returnee"
+  },
+  "reviewed": false,
+  "grids": [
+    {
+      "n": 1,
+      "rows": [
+        "woman",
+        "top-three-boot",
+        "state-california"
+      ],
+      "cols": [
+        "second-chance-island",
+        "found-idol",
+        "era-1-20"
+      ],
+      "counts": [
+        15,
+        16,
+        27,
+        7,
+        6,
+        14,
+        9,
+        18,
+        22
+      ]
+    },
+    {
+      "n": 2,
+      "rows": [
+        "era-21-30",
+        "ind-immunity",
+        "tribe-red"
+      ],
+      "cols": [
+        "winner",
+        "season-20",
+        "zero-jury-votes"
+      ],
+      "counts": [
+        12,
+        6,
+        6,
+        26,
+        15,
+        10,
+        18,
+        13,
+        4
+      ]
+    },
+    {
+      "n": 3,
+      "rows": [
+        "age-40-plus",
+        "jury",
+        "age-under-25"
+      ],
+      "cols": [
+        "era-21-40",
+        "ind-immunity-3",
+        "season-34"
+      ],
+      "counts": [
+        17,
+        11,
+        4,
+        66,
+        29,
+        15,
+        17,
+        12,
+        4
+      ]
+    },
+    {
+      "n": 4,
+      "rows": [
+        "state-california",
+        "three-plus",
+        "era-1-10"
+      ],
+      "cols": [
+        "season-40",
+        "tribe-purple",
+        "finalist"
+      ],
+      "counts": [
+        4,
+        20,
+        19,
+        9,
+        15,
+        18,
+        4,
+        8,
+        13
+      ]
+    },
+    {
+      "n": 5,
+      "rows": [
+        "second-chance-island",
+        "tribe-yellow",
+        "ind-immunity"
+      ],
+      "cols": [
+        "era-31-40",
+        "season-20",
+        "found-idol"
+      ],
+      "counts": [
+        23,
+        6,
+        17,
+        12,
+        7,
+        8,
+        43,
+        15,
+        38
+      ]
+    },
+    {
+      "n": 6,
+      "rows": [
+        "woman",
+        "era-21-30",
+        "age-under-25"
+      ],
+      "cols": [
+        "winner",
+        "ind-immunity-3",
+        "top-three-boot"
+      ],
+      "counts": [
+        15,
+        15,
+        12,
+        12,
+        19,
+        8,
+        8,
+        12,
+        6
+      ]
+    },
+    {
+      "n": 7,
+      "rows": [
+        "three-plus",
+        "era-1-20",
+        "tribe-orange"
+      ],
+      "cols": [
+        "played-idol",
+        "season-34",
+        "state-california"
+      ],
+      "counts": [
+        14,
+        11,
+        10,
+        11,
+        5,
+        22,
+        11,
+        6,
+        10
+      ]
+    },
+    {
+      "n": 8,
+      "rows": [
+        "era-21-40",
+        "jury",
+        "season-31"
+      ],
+      "cols": [
+        "tribe-blue",
+        "found-idol",
+        "tribe-yellow"
+      ],
+      "counts": [
+        50,
+        36,
+        25,
+        55,
+        39,
+        28,
+        13,
+        6,
+        4
+      ]
+    },
+    {
+      "n": 9,
+      "rows": [
+        "ind-immunity",
+        "finalist",
+        "tribe-red"
+      ],
+      "cols": [
+        "age-40-plus",
+        "medevac-or-quit",
+        "era-21-30"
+      ],
+      "counts": [
+        20,
+        7,
+        38,
+        12,
+        4,
+        25,
+        6,
+        5,
+        19
+      ]
+    },
+    {
+      "n": 10,
+      "rows": [
+        "winner",
+        "age-under-25",
+        "era-11-20"
+      ],
+      "cols": [
+        "ind-immunity-3",
+        "three-plus",
+        "state-california"
+      ],
+      "counts": [
+        16,
+        12,
+        6,
+        12,
+        10,
+        9,
+        12,
+        17,
+        18
+      ]
+    }
+  ]
+}

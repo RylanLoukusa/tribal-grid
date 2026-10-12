@@ -1,0 +1,27 @@
+{
+  "id": "2026-11-03",
+  "number": 24,
+  "show": "survivor",
+  "rows": [
+    "era-31-40",
+    "ind-immunity-3",
+    "state-california"
+  ],
+  "cols": [
+    "one-season",
+    "finalist",
+    "out-with-advantage"
+  ],
+  "counts": [
+    113,
+    45,
+    15,
+    20,
+    40,
+    6,
+    158,
+    30,
+    13
+  ],
+  "reviewed": false
+}

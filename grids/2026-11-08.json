@@ -1,0 +1,27 @@
+{
+  "id": "2026-11-08",
+  "number": 29,
+  "show": "survivor",
+  "rows": [
+    "age-under-25",
+    "returnee",
+    "swapped"
+  ],
+  "cols": [
+    "woman",
+    "first-boot",
+    "state-florida"
+  ],
+  "counts": [
+    83,
+    9,
+    11,
+    58,
+    7,
+    13,
+    222,
+    7,
+    30
+  ],
+  "reviewed": false
+}
