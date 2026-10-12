@@ -168,6 +168,8 @@ h1 a { color: inherit; text-decoration: none; }
 .unlock-text b { font-family: var(--display); font-size: 1.5rem; text-transform: uppercase; letter-spacing: .02em; }
 .unlock-text span { color: var(--mute); font-size: .88rem; }
 .unlock-text.owned { color: var(--jungle); font-weight: 600; }
+.unlock-text .deal { margin-top: 4px; }
+.unlock-text .deal s { opacity: .7; }
 .unlock-btns { display: flex; gap: 8px; flex-wrap: wrap; }
 .unlock .arch-note { flex-basis: 100%; margin: 0; }
 .arch-section { display: flex; flex-direction: column; gap: 10px; }

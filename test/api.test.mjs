@@ -7,7 +7,7 @@ import { CATEGORY_BY_ID, answersFor } from "../src/core/categories.js";
 import { createGame, MAX_WRONG } from "../src/core/game.js";
 import { memoryStore } from "../src/core/store-memory.js";
 import { stripePayments } from "../src/core/payments.js";
-import { inPool } from "../src/core/products.js";
+import { inPool, owns, bundleOffer } from "../src/core/products.js";
 
 const data = JSON.parse(await readFile(new URL("../src/generated/data.json", import.meta.url), "utf8"));
 const people = data.castaways.map(p => ({ ...p, tagSet: new Set(p.tags) }));
@@ -171,18 +171,18 @@ test("unlocking packs and restoring on another device", async () => {
 });
 
 test("Stripe checkout, confirm and signed webhooks", async () => {
-  const sessions = {};
+  const sessions = {}, amounts = [];
   const fakeFetch = async (url, init) => {
     if (init.method === "POST") {
       const f = new URLSearchParams(init.body);
       const id = "cs_test_" + Object.keys(sessions).length;
-      assert.equal(f.get("line_items[0][price]"), "price_archive");
+      amounts.push(+f.get("line_items[0][price_data][unit_amount]"));
       sessions[id] = { id, url: "https://checkout.stripe.com/" + id, payment_status: "unpaid", metadata: { product: f.get("metadata[product]"), player: f.get("metadata[player]") } };
       return new Response(JSON.stringify(sessions[id]));
     }
     return new Response(JSON.stringify(sessions[url.split("/").pop()]));
   };
-  const payments = stripePayments({ secretKey: "sk_test", webhookSecret: "whsec_test", prices: { archive: "price_archive", pack: "price_pack", all: "price_all" }, fetchImpl: fakeFetch });
+  const payments = stripePayments({ secretKey: "sk_test", webhookSecret: "whsec_test", fetchImpl: fakeFetch });
   const game = createGame({ castaways: data.castaways, grids: data.grids, packs: data.packs, store: memoryStore(), now: NOW, payments });
   const pl = "stripe-buyer-0001";
 
@@ -203,4 +203,23 @@ test("Stripe checkout, confirm and signed webhooks", async () => {
   assert.equal((await hook(`t=${t},v1=${"0".repeat(64)}`)).status, 400, "bad signature rejected");
   assert.equal((await hook(`t=${t},v1=${sig}`)).status, 200);
   assert.equal((await call(game, `/api/grid?id=${PAST}&player=${pl2}`)).status, 200);
+
+  // Upgrading to Everything is charged at the bundle price minus the archive already owned,
+  // and grants this season's bundle rather than a bare "all".
+  await call(game, "/api/checkout", { player: pl, product: "all" });
+  assert.deepEqual(amounts, [499, 499, 500]);
+  assert.equal(sessions.cs_test_2.metadata.product, "all:51");
+});
+
+test("bundle covers its own season's packs and credits what you own", () => {
+  const owned = (...xs) => new Set(xs);
+  assert.equal(bundleOffer(owned()).price, "$9.99");
+  assert.equal(bundleOffer(owned("archive")).price, "$5.00");
+  assert.equal(bundleOffer(owned("pack:new-era")).price, "$7.00");
+  assert.equal(bundleOffer(owned("archive", "pack:new-era", "pack:returnees")).price, "$1.99", "never below the floor");
+  const bundle = owned("all:51");
+  assert.ok(owns(bundle, "archive") && owns(bundle, "pack:classic-era") && owns(bundle, "all"));
+  assert.ok(!owns(owned("all:50"), "pack:classic-era"), "an older season's bundle doesn't cover this season's packs");
+  assert.ok(owns(owned("all:50"), "archive"));
+  assert.ok(owns(owned("all"), "pack:returnees"), "legacy grants keep everything");
 });

@@ -61,11 +61,14 @@ Today's grid and practice grids are free. Everything else is in `src/core/produc
 
 | Product | Shown price | Unlocks |
 |---|---|---|
-| `archive` | $3.99 | Every past daily grid |
-| `pack:<id>` | $1.99 each | One season pack (10 grids from one slice of history) |
-| `all` | $7.99 | Archive plus every pack, including future ones |
+| `archive` | $4.99 | Every past daily grid |
+| `pack:<id>` | $2.99 each | One season pack (10 grids from one slice of history) |
+| `all` | $9.99 | Archive plus every pack tagged with the current season (`BUNDLE_SEASON`), including ones released before its finale |
 
-- **Payments use Stripe Checkout** (`src/core/payments.js`, no SDK). Set these as Worker secrets: `STRIPE_SECRET_KEY`, `STRIPE_WEBHOOK_SECRET`, `STRIPE_PRICE_ARCHIVE`, `STRIPE_PRICE_PACK`, `STRIPE_PRICE_ALL`. Point a Stripe webhook at `/api/stripe/webhook` for `checkout.session.completed`. Until they're set, buy buttons say "Coming soon".
+- **Upgrade credit:** Everything costs $9.99 minus what the player already owns from it (archive $4.99, this season's packs $2.99 each), never below $1.99. So an archive owner upgrades for $5.00.
+- **Seasons:** buying Everything grants `all:<season>`. At each premiere, bump `BUNDLE_SEASON` in `src/core/products.js` and tag new packs with the new season. Older bundles keep the archive and their own season's packs.
+
+- **Payments use Stripe Checkout** (`src/core/payments.js`, no SDK). Set these as Worker secrets: `STRIPE_SECRET_KEY` and `STRIPE_WEBHOOK_SECRET`. Amounts come from `products.js` on each checkout, so there are no Stripe Prices to create. Point a Stripe webhook at `/api/stripe/webhook` for `checkout.session.completed`. Until they're set, buy buttons say "Coming soon".
 - **No accounts:** a purchase belongs to the device. Each buyer gets a restore code (shown on the Archive page) that unlocks the same things on another device.
 - **Ads use Google AdSense.** Set `ADSENSE_CLIENT` (ca-pub-…) and optionally `ADSENSE_SLOT_GAME`; the site then loads ads in the slot under the grid and serves `/ads.txt`. Anyone who has bought something sees no ads. Turn on Google's consent message in AdSense (Privacy & messaging) for EU/UK visitors.
 - `npm run dev` turns on `FREE_UNLOCK=1` (buying is free) and ad placeholders so you can try both locally.

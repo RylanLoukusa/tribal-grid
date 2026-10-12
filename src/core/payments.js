@@ -1,9 +1,9 @@
 // Stripe Checkout over plain fetch, so it runs on Workers, Node and nowhere needs the SDK.
-// Configure with env: STRIPE_SECRET_KEY, STRIPE_WEBHOOK_SECRET and one Price id per product
-// family (STRIPE_PRICE_ARCHIVE, STRIPE_PRICE_PACK, STRIPE_PRICE_ALL).
+// Configure with env: STRIPE_SECRET_KEY and STRIPE_WEBHOOK_SECRET. Amounts come from
+// products.js on each checkout, so there are no Price objects to create or keep in sync.
 const API = "https://api.stripe.com/v1/";
 
-export function stripePayments({ secretKey, webhookSecret, prices, fetchImpl = fetch }) {
+export function stripePayments({ secretKey, webhookSecret, fetchImpl = fetch }) {
   if (!secretKey || !webhookSecret) return null;
   const call = async (path, form) => {
     const res = await fetchImpl(API + path, {
@@ -15,13 +15,14 @@ export function stripePayments({ secretKey, webhookSecret, prices, fetchImpl = f
     if (!res.ok) throw new Error("Stripe: " + (data.error?.message || res.status));
     return data;
   };
-  const priceFor = product => product === "archive" ? prices.archive : product === "all" ? prices.all : product.startsWith("pack:") ? prices.pack : null;
   return {
-    async createCheckout({ product, player, successUrl, cancelUrl }) {
-      const price = priceFor(product);
-      if (!price) throw new Error("No Stripe price set for " + product);
+    // product is what gets granted on payment; cents and title are what the buyer sees and pays.
+    async createCheckout({ product, cents, title, player, successUrl, cancelUrl }) {
       const s = await call("checkout/sessions", {
-        mode: "payment", "line_items[0][price]": price, "line_items[0][quantity]": "1",
+        mode: "payment", "line_items[0][quantity]": "1",
+        "line_items[0][price_data][currency]": "usd",
+        "line_items[0][price_data][unit_amount]": String(cents),
+        "line_items[0][price_data][product_data][name]": "Tribal Grid: " + title,
         success_url: successUrl, cancel_url: cancelUrl, client_reference_id: player,
         "metadata[product]": product, "metadata[player]": player,
       });

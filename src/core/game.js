@@ -8,7 +8,7 @@ import { CATEGORY_BY_ID, fits, answersFor } from "./categories.js";
 import { generate } from "./generate.js";
 import { cellShares, toPercent, scoreOf } from "./rarity.js";
 import { todayId, isDateId, LAUNCH_DATE } from "./dates.js";
-import { PACKS, PRODUCTS, PRODUCT_IDS, inPool, owns } from "./products.js";
+import { PACKS, PRODUCTS, PRODUCT_IDS, BUNDLE_SEASON, SEPARATE_CENTS, inPool, owns, bundleOffer, bundleGrant, isGrant, priceFor, usd } from "./products.js";
 
 export const MAX_WRONG = 9;
 const PLAYER_RE = /^[A-Za-z0-9_-]{8,64}$/;
@@ -234,10 +234,14 @@ export function createGame({
       locked: !owns(owned, "pack:" + p.id),
       grids: packs[p.id].grids.map(g => ({ id: `pack-${p.id}-${g.n}`, n: g.n, status: status(`pack-${p.id}-${g.n}`) })),
     }));
+    const offer = bundleOffer(owned);
     return json({
       today, daily, packs: packList, owned: [...owned],
+      unlocked: { archive: owns(owned, "archive"), all: owns(owned, "all") },
+      bundle: { season: BUNDLE_SEASON.name, separately: usd(SEPARATE_CENTS), credit: offer.credit ? usd(offer.credit) : null },
       restoreCodes: PLAYER_RE.test(player) ? await store.restoreCodes(player) : [],
-      payments: !!payments || freeUnlock, freeUnlock, products: PRODUCTS,
+      payments: !!payments || freeUnlock, freeUnlock,
+      products: PRODUCTS.map(p => p.id === "all" ? { ...p, price: offer.price, fullPrice: p.price } : p),
     }, { "cache-control": "no-store" });
   }
 
@@ -246,7 +250,7 @@ export function createGame({
     return [...bytes].map(b => abc[b % abc.length]).join("");
   }
   async function fulfil({ session, player, product }) {
-    if (!PLAYER_RE.test(player || "") || !PRODUCT_IDS.has(product)) return;
+    if (!PLAYER_RE.test(player || "") || !isGrant(product || "")) return;
     const code = (await store.restoreCodes(player))[0] || restoreCode();
     await store.addPurchase({ session, player, product, restoreCode: code });
     await store.grant(player, product);
@@ -256,15 +260,17 @@ export function createGame({
     const b = await body(req);
     if (!b || !PLAYER_RE.test(b.player || "")) return err(400, "Bad player id");
     if (!PRODUCT_IDS.has(b.product)) return err(400, "Unknown product");
-    if (owns(await ownedBy(b.player), b.product)) return json({ owned: true });
+    const owned = await ownedBy(b.player);
+    if (owns(owned, b.product)) return json({ owned: true });
+    const grant = b.product === "all" ? bundleGrant() : b.product;
     if (freeUnlock) {
-      await fulfil({ session: "free-" + restoreCode(), player: b.player, product: b.product });
+      await fulfil({ session: "free-" + restoreCode(), player: b.player, product: grant });
       return json({ granted: true });
     }
     if (!payments) return err(503, "Purchases aren't switched on yet.");
     const origin = new URL(req.url).origin;
     const url = await payments.createCheckout({
-      product: b.product, player: b.player,
+      product: grant, ...priceFor(owned, b.product), player: b.player,
       successUrl: `${origin}/?purchase={CHECKOUT_SESSION_ID}#archive`, cancelUrl: `${origin}/#archive`,
     });
     return json({ url });

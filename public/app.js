@@ -407,8 +407,8 @@ let toastTimer;
 function toast(msg) { $("toast").textContent = msg; clearTimeout(toastTimer); toastTimer = setTimeout(() => $("toast").textContent = "", 6000); }
 
 // ---- Archive and packs
-const product = id => config.products.find(p => p.id === id) || { title: id, price: "" };
-const owned = id => archive?.owned.includes(id) || archive?.owned.includes("all");
+// The archive response carries this player's prices (Everything is discounted by what they own).
+const product = id => (archive?.products || config.products).find(p => p.id === id) || { title: id, price: "" };
 async function refreshArchive() {
   try { archive = await api(`/api/archive?player=${encodeURIComponent(player)}`); } catch { archive = null; }
 }
@@ -433,16 +433,28 @@ function renderArchive() {
   if (!archive) { $("arch-daily").textContent = "Couldn't load the archive. Check your connection and try again."; return; }
   const unlock = $("unlock-archive");
   unlock.innerHTML = "";
-  if (!owned("archive")) {
+  const all = product("all"), b = archive.bundle;
+  if (!archive.unlocked.archive) {
     const txt = el("div", "unlock-text");
     txt.append(el("b", "", "Play every past grid"), el("span", "", `${product("archive").description} One-time ${product("archive").price}.`));
+    const deal = el("span", "deal");
+    if (b.credit) deal.append(`Everything is ${all.price} for you: the ${b.credit} you've already spent on packs counts toward it.`);
+    else deal.append("Everything is the archive plus every pack for ", el("s", "", b.separately), ` ${all.price}.`);
+    txt.append(deal);
     const btns = el("div", "unlock-btns");
-    btns.append(buyButton("archive"), buyButton("all", `Everything for ${product("all").price}`));
+    btns.append(buyButton("archive"), buyButton("all", `Everything for ${all.price}`));
     unlock.append(txt, btns);
-    if (archive.freeUnlock) unlock.append(el("p", "arch-note", "Preview build: unlocking is free here so you can try it. The live site charges through Stripe."));
+  } else if (!archive.unlocked.all) {
+    const txt = el("div", "unlock-text");
+    txt.append(el("b", "", "Archive unlocked"),
+      el("span", "", `Upgrade to Everything for ${all.price}. What you've already bought (${b.credit}) counts toward the ${all.fullPrice} price.`));
+    const btns = el("div", "unlock-btns");
+    btns.append(buyButton("all", `Upgrade for ${all.price}`));
+    unlock.append(txt, btns);
   } else {
-    unlock.append(el("div", "unlock-text owned", "The archive is unlocked on this device."));
+    unlock.append(el("div", "unlock-text owned", `Everything is unlocked on this device, including new packs through the ${b.season} finale.`));
   }
+  if (archive.freeUnlock && !archive.unlocked.all) unlock.append(el("p", "arch-note", "Preview build: unlocking is free here so you can try it. The live site charges through Stripe."));
 
   const daily = $("arch-daily");
   daily.innerHTML = "";

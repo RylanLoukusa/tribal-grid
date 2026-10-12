@@ -8,7 +8,7 @@ Short answer: **not yet.** The game, payments code and share links work and have
 2. **Cloudflare account** (free tier is enough to start). Then run `wrangler d1 create tribal-grid`, paste the id into `wrangler.toml`, and run the migrations. I won't deploy until you say go.
 3. **Domain.** You'll need one for AdSense, Stripe and share links. About $10/yr through Cloudflare Registrar.
 4. **Review the grids.** All 31 dailies (Oct 11 to Nov 10) and the 4 packs are still unreviewed. Production refuses to serve unreviewed grids, so the site shows "no grid today" until you approve them. Use `npm run review -- <date>`, then `--approve`.
-5. **Stripe account.** Create three Prices (archive, single pack, everything) and set the final prices. Right now they're placeholders: $3.99, $1.99 and $7.99.
+5. **Stripe account.** Create the account, add the secret key and a webhook secret as Worker secrets. No Prices to create: amounts ($4.99 archive, $2.99 packs, $9.99 Everything) come from the code.
 6. **AdSense.** Apply after the site is live with the privacy page up. Approval usually takes days to weeks, so launch without ads and turn them on later.
 7. **Name check.** "Survivor" is a CBS trademark. We use no logos or show art, the footer says we're not affiliated, and "Tribal Grid" doesn't use the mark. Contestant names are factual data. Still, before you spend money on branding, do a quick USPTO search on "Tribal Grid" and avoid "Survivor" in the domain.
 

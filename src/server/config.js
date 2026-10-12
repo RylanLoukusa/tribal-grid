@@ -7,7 +7,6 @@ export function gameOptions(env = {}) {
     freeUnlock: env.FREE_UNLOCK === "1",
     payments: stripePayments({
       secretKey: env.STRIPE_SECRET_KEY, webhookSecret: env.STRIPE_WEBHOOK_SECRET,
-      prices: { archive: env.STRIPE_PRICE_ARCHIVE, pack: env.STRIPE_PRICE_PACK, all: env.STRIPE_PRICE_ALL },
     }),
     ads: {
       client: env.ADSENSE_CLIENT || null,
