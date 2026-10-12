@@ -13,7 +13,7 @@ binding = "ASSETS"
 [[d1_databases]]
 binding = "DB"
 database_name = "tribal-grid"
-database_id = "REPLACE_WITH_YOUR_D1_DATABASE_ID"
+database_id = "c5c2e2c4-fc3f-4fa9-8218-b69f7998590c"
 migrations_dir = "migrations"
 
 [vars]
