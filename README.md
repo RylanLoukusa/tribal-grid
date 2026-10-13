@@ -57,6 +57,8 @@ Verified locally with `wrangler dev` against a local D1 database.
 
 ## Money: archive, packs and ads
 
+**The shop is off by default.** With `SHOP` unset, past daily grids are free, packs are hidden and every purchase route returns 404. Set the Worker var `SHOP = "1"` (plus the Stripe secrets below) to turn the paid archive and packs back on.
+
 Today's grid and practice grids are free. Everything else is in `src/core/products.js`:
 
 | Product | Shown price | Unlocks |

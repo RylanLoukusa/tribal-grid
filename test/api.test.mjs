@@ -15,7 +15,7 @@ const ids = Object.keys(data.grids).sort();
 const GRID = ids[1], PAST = ids[0];
 const NOW = () => new Date(GRID + "T18:00:00Z");
 let srv, base;
-before(async () => { srv = await startServer({ port: 0, dbPath: ":memory:", now: NOW, env: {} }); base = `http://localhost:${srv.port}`; });
+before(async () => { srv = await startServer({ port: 0, dbPath: ":memory:", now: NOW, env: { SHOP: "1" } }); base = `http://localhost:${srv.port}`; });
 after(() => srv.close());
 
 const get = async p => { const r = await fetch(base + p); return { status: r.status, body: await r.json().catch(() => null) }; };
@@ -209,6 +209,19 @@ test("Stripe checkout, confirm and signed webhooks", async () => {
   await call(game, "/api/checkout", { player: pl, product: "all" });
   assert.deepEqual(amounts, [499, 499, 500]);
   assert.equal(sessions.cs_test_2.metadata.product, "all:51");
+});
+
+test("with the shop off, past grids are free and packs are hidden", async () => {
+  const game = createGame({ castaways: data.castaways, grids: data.grids, packs: data.packs, store: memoryStore(), now: NOW, shop: false });
+  const p = "free-player-0001";
+  assert.equal((await call(game, `/api/grid?id=${PAST}&player=${p}`)).status, 200);
+  assert.equal((await call(game, `/api/grid?id=pack-new-era-1&player=${p}`)).status, 404);
+  const arch = (await call(game, `/api/archive?player=${p}`)).body;
+  assert.equal(arch.shop, false);
+  assert.deepEqual(arch.packs, []);
+  assert.ok(arch.daily.length && arch.daily.every(g => !g.locked));
+  assert.equal((await call(game, "/api/checkout", { player: p, product: "archive" })).status, 404);
+  assert.equal((await call(game, "/api/config")).body.shop, false);
 });
 
 test("bundle covers its own season's packs and credits what you own", () => {

@@ -49,6 +49,7 @@ async function boot() {
   try {
     const [cfg, list] = await Promise.all([api("/api/config"), api("/api/castaways")]);
     config = cfg;
+    $("tab-archive").textContent = cfg.shop ? "Archive & packs" : "Past grids";
     people = list.map(p => { const k = norm([p.name, ...p.search].join(" ")); return { ...p, key: k, words: k.split(" ") }; });
     byId = new Map(people.map(p => [p.id, p]));
 
@@ -415,7 +416,7 @@ async function refreshArchive() {
 async function showArchive() {
   showView("archive");
   history.replaceState(null, "", location.pathname.startsWith("/r/") ? "/#archive" : location.pathname + "#archive");
-  $("meta").textContent = "Archive & packs";
+  $("meta").textContent = config.shop ? "Archive & packs" : "Past grids";
   await refreshArchive();
   renderArchive();
   renderAds();
@@ -433,8 +434,12 @@ function renderArchive() {
   if (!archive) { $("arch-daily").textContent = "Couldn't load the archive. Check your connection and try again."; return; }
   const unlock = $("unlock-archive");
   unlock.innerHTML = "";
+  // With the shop off, this view is just a free list of past grids.
+  for (const id of ["unlock-archive", "arch-packs-section", "arch-restore"]) $(id).hidden = !archive.shop;
   const all = product("all"), b = archive.bundle;
-  if (!archive.unlocked.archive) {
+  if (!archive.shop) {
+    // nothing to sell
+  } else if (!archive.unlocked.archive) {
     const txt = el("div", "unlock-text");
     txt.append(el("b", "", "Play every past grid"), el("span", "", `${product("archive").description} One-time ${product("archive").price}.`));
     const deal = el("span", "deal");
@@ -488,7 +493,7 @@ function renderArchive() {
     }
     packs.append(card);
   }
-  $("restore-codes").textContent = archive.restoreCodes.length
+  if (archive.shop) $("restore-codes").textContent = archive.restoreCodes.length
     ? `Your restore code is ${archive.restoreCodes.join(", ")}. Enter it on another phone or computer to unlock the same things there.`
     : "Enter the restore code from your purchase to unlock it on this device.";
 }
@@ -513,7 +518,7 @@ async function confirmPurchase(session) {
 // ---- Ads (only when configured, never for anyone who has bought something)
 let adsLoaded = false;
 function renderAds() {
-  const ads = config.ads, paid = archive?.owned.length > 0;
+  const ads = config.ads, paid = archive?.owned?.length > 0;
   for (const slot of document.querySelectorAll(".ad-slot")) {
     const show = !!ads && !paid && !(slot.dataset.slot === "game" && view !== "game");
     slot.hidden = !show;

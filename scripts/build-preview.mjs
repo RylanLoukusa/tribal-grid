@@ -33,7 +33,7 @@ const persist = {
   load() { try { return JSON.parse(localStorage.getItem("tribalgrid:preview-db")); } catch { return null; } },
   save(s) { try { localStorage.setItem("tribalgrid:preview-db", JSON.stringify(s)); } catch {} },
 };
-const game = createGame({ castaways: DATA.castaways, grids: DATA.grids, packs: DATA.packs, store: memoryStore(persist), freeUnlock: true, ads: { placeholder: true } });
+const game = createGame({ castaways: DATA.castaways, grids: DATA.grids, packs: DATA.packs, store: memoryStore(persist), shop: false, ads: { placeholder: true } });
 window.TRIBAL_GRID_SHARE_LINK = token => ${JSON.stringify(process.env.PREVIEW_URL || "https://tribalgrid.example")} + "#r-" + token;
 window.TRIBAL_GRID_FETCH = (path, init) => game.handle(new Request("https://preview.local" + path, init));
 })();

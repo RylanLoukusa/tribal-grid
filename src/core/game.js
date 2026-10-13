@@ -16,8 +16,9 @@ const PACK_GRID_RE = /^pack-([a-z0-9-]+)-(\d{1,3})$/;
 
 export function createGame({
   castaways, grids, packs = {}, store, now = () => new Date(), requireReview = false, showName = "Survivor",
-  payments = null, freeUnlock = false, ads = null,
+  payments = null, freeUnlock = false, ads = null, shop = true,
 }) {
+  // shop off: no store at all. Past daily grids are free, packs are hidden, purchase routes 404.
   const people = castaways.map(p => ({ ...p, tagSet: new Set(p.tags) }));
   const byId = new Map(people.map(p => [p.id, p]));
   const publicList = people.map(p => ({ id: p.id, name: p.name, search: p.search, seasons: p.seasons }));
@@ -37,6 +38,7 @@ export function createGame({
     }
     const pm = id.match(PACK_GRID_RE);
     if (pm) {
+      if (!shop) return { error: [404, "No such pack grid"] };
       const pack = packs[pm[1]], info = packInfo.get(pm[1]);
       const pg = pack?.grids.find(g => g.n === +pm[2]);
       if (!pg || !info) return { error: [404, "No such pack grid"] };
@@ -56,6 +58,7 @@ export function createGame({
   // Today's grid and practice are free. Past grids need the archive (or a game already started
   // on them); pack grids need that pack.
   async function lockFor(g, player) {
+    if (!shop) return null;
     const product = productFor(g);
     if (!product) return null;
     if (owns(await ownedBy(player), product)) return null;
@@ -122,8 +125,8 @@ export function createGame({
   async function getConfig() {
     return json({
       launch: LAUNCH_DATE, show: showName,
-      payments: !!payments || freeUnlock, freeUnlock,
-      products: PRODUCTS,
+      shop, payments: shop && (!!payments || freeUnlock), freeUnlock,
+      products: shop ? PRODUCTS : [],
       ads: ads?.client || ads?.placeholder ? { client: ads.client || null, slots: ads.slots || {}, placeholder: !!ads.placeholder } : null,
     }, { "cache-control": "public, max-age=300" });
   }
@@ -228,7 +231,8 @@ export function createGame({
     const daily = Object.values(grids)
       .filter(g => g.id < today && (!requireReview || g.reviewed))
       .sort((a, b) => b.id.localeCompare(a.id))
-      .map(g => ({ id: g.id, number: g.number, status: status(g.id), locked: !owns(owned, "archive") && !played.has(g.id) }));
+      .map(g => ({ id: g.id, number: g.number, status: status(g.id), locked: shop && !owns(owned, "archive") && !played.has(g.id) }));
+    if (!shop) return json({ today, daily, packs: [], shop: false }, { "cache-control": "no-store" });
     const packList = PACKS.filter(p => packs[p.id] && (!requireReview || packs[p.id].reviewed)).map(p => ({
       id: p.id, title: p.title, description: p.description, product: "pack:" + p.id,
       locked: !owns(owned, "pack:" + p.id),
@@ -236,7 +240,7 @@ export function createGame({
     }));
     const offer = bundleOffer(owned);
     return json({
-      today, daily, packs: packList, owned: [...owned],
+      today, daily, packs: packList, owned: [...owned], shop: true,
       unlocked: { archive: owns(owned, "archive"), all: owns(owned, "all") },
       bundle: { season: BUNDLE_SEASON.name, separately: usd(SEPARATE_CENTS), credit: offer.credit ? usd(offer.credit) : null },
       restoreCodes: PLAYER_RE.test(player) ? await store.restoreCodes(player) : [],
@@ -321,10 +325,10 @@ export function createGame({
         case "GET /api/results": return await getResults(url);
         case "POST /api/report": return await postReport(req);
         case "GET /api/archive": return await getArchive(url);
-        case "POST /api/checkout": return await postCheckout(req);
-        case "POST /api/purchase/confirm": return await postConfirm(req);
-        case "POST /api/stripe/webhook": return await postWebhook(req);
-        case "POST /api/restore": return await postRestore(req);
+        case "POST /api/checkout": return shop ? await postCheckout(req) : err(404, "Not found");
+        case "POST /api/purchase/confirm": return shop ? await postConfirm(req) : err(404, "Not found");
+        case "POST /api/stripe/webhook": return shop ? await postWebhook(req) : err(404, "Not found");
+        case "POST /api/restore": return shop ? await postRestore(req) : err(404, "Not found");
         case "GET /api/health": return json({ ok: true, castaways: people.length, grids: Object.keys(grids).length, packs: Object.keys(packs).length });
         case "GET /ads.txt":
           if (!ads?.client) return err(404, "Not found");

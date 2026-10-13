@@ -34,7 +34,7 @@
     </nav>
     <nav class="tabs" aria-label="Sections">
       <button class="tab" id="tab-today" aria-current="page">Today</button>
-      <button class="tab" id="tab-archive">Archive &amp; packs</button>
+      <button class="tab" id="tab-archive">Past grids</button>
     </nav>
   </header>
 
@@ -90,18 +90,18 @@
   </main>
 
   <main id="archive-view" hidden>
-    <section class="unlock" id="unlock-archive"></section>
+    <section class="unlock" id="unlock-archive" hidden></section>
     <section class="arch-section">
       <h2>Past grids</h2>
       <div class="arch-grid" id="arch-daily"></div>
     </section>
-    <section class="arch-section">
+    <section class="arch-section" id="arch-packs-section" hidden>
       <h2>Grid packs</h2>
       <p class="arch-note">Themed sets of 10 grids built from one slice of Survivor history. Rarity is scored against everyone who plays the pack.</p>
       <div class="packs" id="arch-packs"></div>
       <p class="arch-note more">More packs are on the way, including single-season and theme packs. Everything includes every new pack released through the end of the current season.</p>
     </section>
-    <section class="arch-section restore">
+    <section class="arch-section restore" id="arch-restore" hidden>
       <h2>Bought on another device?</h2>
       <p class="arch-note" id="restore-codes"></p>
       <form id="restore-form" class="restore-form">
