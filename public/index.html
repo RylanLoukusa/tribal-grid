@@ -27,11 +27,6 @@
         <div class="next-drop" id="next-drop" hidden></div>
       </div>
     </div>
-    <nav class="shows" aria-label="Show">
-      <button class="show" aria-current="true">Survivor</button>
-      <button class="show" disabled>Love Island USA<small>June</small></button>
-      <button class="show" disabled>The Traitors<small>Jan</small></button>
-    </nav>
     <nav class="tabs" aria-label="Sections">
       <button class="tab" id="tab-today" aria-current="page">Today</button>
       <button class="tab" id="tab-archive">Past grids</button>
@@ -44,9 +39,14 @@
 
   <main id="game" hidden>
     <div class="status">
-      <div class="stat"><b id="s-wrong">9</b><span>Misses left</span></div>
-      <div class="stat"><b id="s-correct">0/9</b><span>Correct</span></div>
-      <div class="stat"><b id="s-score">900</b><span>Score (low wins)</span></div>
+      <div class="torches-wrap">
+        <div class="torches" id="torches" aria-hidden="true"></div>
+        <span class="status-label" id="s-wrong">9 misses left</span>
+      </div>
+      <div class="status-right">
+        <span id="s-correct">0/9 correct</span>
+        <span class="status-score" id="s-score">Low score wins</span>
+      </div>
     </div>
 
     <div class="board" id="board" role="grid" aria-label="Grid"></div>

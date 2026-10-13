@@ -44,6 +44,7 @@ let config = { products: [], ads: null };
 let people = [], byId = new Map();
 let grid = null, play = null, results = null, archive = null;
 let view = "game";
+const MAX_MISSES = 9;
 
 async function boot() {
   try {
@@ -67,6 +68,7 @@ async function boot() {
 }
 
 async function openGrid(id, { fallbackToday = false } = {}) {
+  torchesLit = null;
   $("loading").hidden = false;
   try {
     grid = await api(`/api/grid?player=${encodeURIComponent(player)}${id ? "&id=" + encodeURIComponent(id) : ""}`);
@@ -179,9 +181,10 @@ function render() {
     });
   });
   const correct = play.cells.filter(Boolean).length;
-  $("s-wrong").textContent = play.wrongLeft;
-  $("s-correct").textContent = correct + "/9";
-  $("s-score").textContent = Math.round(play.score);
+  renderTorches(play.wrongLeft);
+  $("s-wrong").textContent = `${play.wrongLeft} ${play.wrongLeft === 1 ? "miss" : "misses"} left`;
+  $("s-correct").textContent = correct + "/9 correct";
+  $("s-score").textContent = correct ? `Score ${Math.round(play.score)}` : "Low score wins";
   $("board-hint").textContent = play.done ? "Tap any square to see every right answer, rarest first."
     : correct ? "Tap a filled square to swap in a rarer answer. Submit when you're happy." : "";
   $("btn-submit").hidden = play.done;
@@ -402,6 +405,20 @@ async function submit() {
 function revealShare() {
   toast("Submitted. Tap any square to see every answer.");
   $("share-card").scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "nearest" });
+}
+
+// One torch per miss you have left. A torch that just went out plays a short snuff animation.
+let torchesLit = null;
+function renderTorches(left) {
+  const box = $("torches");
+  if (box.children.length !== MAX_MISSES) box.replaceChildren(...Array.from({ length: MAX_MISSES }, () => el("span", "torch")));
+  [...box.children].forEach((t, i) => {
+    const lit = i < left;
+    t.classList.toggle("out", !lit);
+    t.classList.toggle("snuff", !lit && torchesLit != null && i < torchesLit);
+  });
+  torchesLit = left;
+  box.title = `${left} ${left === 1 ? "miss" : "misses"} left`;
 }
 
 let toastTimer;

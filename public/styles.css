@@ -35,7 +35,25 @@ h1 span { color: var(--torch); }
 .show[aria-current="true"] { background: var(--bone); color: var(--night); border-color: var(--bone); }
 .show small { font-weight: 500; opacity: .75; margin-left: 4px; }
 
-.status { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.status { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding: 8px 12px; background: var(--ash); border-radius: 10px; }
+.torches-wrap { display: flex; align-items: center; gap: 10px; }
+.torches { display: flex; gap: 5px; height: 26px; align-items: flex-end; }
+.torch { position: relative; width: 10px; height: 26px; }
+/* the stick */
+.torch::after { content: ""; position: absolute; left: 3px; bottom: 0; width: 4px; height: 13px; border-radius: 1px; background: linear-gradient(#8a5a2b, #5c3a1a); }
+/* the flame */
+.torch::before { content: ""; position: absolute; left: 0; bottom: 12px; width: 10px; height: 14px; border-radius: 50% 50% 50% 50% / 62% 62% 38% 38%;
+  background: radial-gradient(circle at 50% 75%, #ffe9a8 0 22%, #f6b33d 45%, #e2541f 80%); box-shadow: 0 0 8px 1px rgba(242,154,58,.55); transform-origin: 50% 100%; animation: flicker 2.4s ease-in-out infinite; }
+.torch:nth-child(2n)::before { animation-delay: -.7s; } .torch:nth-child(3n)::before { animation-delay: -1.5s; }
+.torch.out::before { background: none; box-shadow: none; animation: none; }
+.torch.out::after { background: linear-gradient(#3a3f4a, #2a2e37); }
+.torch.snuff::before { animation: snuff .6s ease-out forwards; background: radial-gradient(circle at 50% 75%, #f6b33d, #e2541f 80%); }
+@keyframes flicker { 0%, 100% { transform: scale(1) rotate(-2deg); } 30% { transform: scale(1.06, .94) rotate(2deg); } 60% { transform: scale(.95, 1.05) rotate(-1deg); } }
+@keyframes snuff { to { transform: scale(.2) translateY(-6px); opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .torch::before, .torch.snuff::before { animation: none; } }
+.status-label { font-size: .8rem; color: var(--mute); }
+.status-right { display: flex; gap: 14px; font: 600 .82rem var(--body); font-variant-numeric: tabular-nums; }
+.status-score { color: var(--torch); }
 .stat { background: var(--ash); border-radius: 10px; padding: 10px 12px; display: flex; flex-direction: column; gap: 2px; }
 .stat b { font-family: var(--display); font-weight: 800; font-size: 1.7rem; line-height: 1; font-variant-numeric: tabular-nums; }
 .stat span { font-size: .7rem; text-transform: uppercase; letter-spacing: .08em; color: var(--mute); }
@@ -235,3 +253,17 @@ body.modal-open { overflow: hidden; }
 .next-drop { font: 500 .74rem var(--mono); color: var(--torch); font-variant-numeric: tabular-nums; }
 .share-next { font: 600 .9rem var(--mono); color: var(--bone); font-variant-numeric: tabular-nums; border-top: 1px solid var(--line); padding-top: 10px; }
 @media (max-width: 420px) { .meta-col { align-items: flex-start; } }
+
+/* On laptops, size the board from the window height so the whole grid and Submit fit without scrolling. */
+@media (min-width: 700px) {
+  #game { --board-w: min(100%, max(360px, calc((100svh - 380px) * 1.25))); }
+  .board, #game > .status, #game > .actions, #game > .board-hint { width: var(--board-w); margin-inline: auto; box-sizing: border-box; }
+}
+
+/* Keep the status bar on one line: when it's narrow, the torches speak for themselves
+   (the label stays for screen readers). */
+#game > .status { container-type: inline-size; }
+@container (max-width: 480px) {
+  .status-label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .status-right { gap: 10px; }
+}
