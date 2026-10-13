@@ -72,7 +72,7 @@ Today's grid and practice grids are free. Everything else is in `src/core/produc
 
 - **Payments use Stripe Checkout** (`src/core/payments.js`, no SDK). Set these as Worker secrets: `STRIPE_SECRET_KEY` and `STRIPE_WEBHOOK_SECRET`. Amounts come from `products.js` on each checkout, so there are no Stripe Prices to create. Point a Stripe webhook at `/api/stripe/webhook` for `checkout.session.completed`. Until they're set, buy buttons say "Coming soon".
 - **No accounts:** a purchase belongs to the device. Each buyer gets a restore code (shown on the Archive page) that unlocks the same things on another device.
-- **Ads use Google AdSense.** Set `ADSENSE_CLIENT` (ca-pub-…) and optionally `ADSENSE_SLOT_GAME` and `ADSENSE_SLOT_RAIL` (a 160×600 unit); the site then loads ads in the slot under the grid, plus left and right rails on screens 1100px and wider, and serves `/ads.txt`. Anyone who has bought something sees no ads. Turn on Google's consent message in AdSense (Privacy & messaging) for EU/UK visitors.
+- **Ads use Google AdSense.** Set `ADSENSE_CLIENT` (ca-pub-…) and optionally `ADSENSE_SLOT_GAME` and `ADSENSE_SLOT_RAIL` (a 160×600 unit); the site then loads ads in the slot under the grid, plus left and right rails on screens 1100px and wider, and serves `/ads.txt`. Anyone who has bought something sees no ads. Turn on Google's consent message in AdSense (Privacy & messaging) for EU/UK visitors. The privacy policy is `public/privacy.html`; verify the site in AdSense with the ads.txt method, since `/ads.txt` is served from `ADSENSE_CLIENT`.
 - `npm run dev` turns on `FREE_UNLOCK=1` (buying is free) and ad placeholders so you can try both locally.
 
 ## Share links

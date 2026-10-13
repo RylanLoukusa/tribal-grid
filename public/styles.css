@@ -267,3 +267,13 @@ body.modal-open { overflow: hidden; }
   .status-label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
   .status-right { gap: 10px; }
 }
+
+/* Privacy and other text pages */
+.legal main { display: flex; flex-direction: column; gap: 10px; }
+.legal h2 { font-family: var(--display); font-size: 2rem; text-transform: uppercase; margin: 8px 0 0; }
+.legal h3 { font-size: 1rem; margin: 14px 0 0; }
+.legal p, .legal li { color: var(--mute); max-width: 66ch; margin: 0; }
+.legal ul { margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 6px; }
+.legal main a:not(.btn) { color: var(--torch); }
+.legal .btn { display: inline-block; margin-top: 12px; text-decoration: none; }
+.foot a { color: inherit; }

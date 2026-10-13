@@ -30,6 +30,7 @@ const player = store.get("player") || (() => {
   store.set("player", id);
   return id;
 })();
+$("player-id").textContent = player;
 
 async function api(path, body) {
   const init = body ? { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ ...body, player }) } : undefined;
