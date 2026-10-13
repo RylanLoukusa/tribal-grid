@@ -547,7 +547,8 @@ function renderAds() {
     if (!show || slot.dataset.filled) continue;
     slot.dataset.filled = "1";
     if (ads.client) {
-      if (!adsLoaded) {
+      // index.html already includes the AdSense script; only add it if it's missing.
+      if (!adsLoaded && !document.querySelector('script[src*="adsbygoogle.js"]')) {
         const s = el("script"); s.async = true; s.crossOrigin = "anonymous";
         s.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=" + encodeURIComponent(ads.client);
         document.head.append(s); adsLoaded = true;

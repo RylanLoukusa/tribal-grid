@@ -21,3 +21,4 @@ migrations_dir = "migrations"
 
 [vars]
 REQUIRE_REVIEW = "1"
+ADSENSE_CLIENT = "ca-pub-1332573525474806"

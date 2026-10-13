@@ -11,7 +11,8 @@ const strip = src => src.replace(/^import .*?;\s*$/gm, "").replace(/^export (?=(
 const core = ["src/core/categories.js", "src/core/generate.js", "src/core/rarity.js", "src/core/dates.js", "src/core/products.js", "src/core/store-memory.js", "src/core/game.js"];
 const coreSrc = (await Promise.all(core.map(read))).map(strip).join("\n");
 const data = JSON.parse(await read("src/generated/data.json"));
-const html = await read("public/index.html");
+// The preview never shows real ads, so drop the AdSense tag.
+const html = (await read("public/index.html")).replace(/<!-- Google AdSense[^>]*-->\n<script[^>]*adsbygoogle[^>]*><\/script>\n/, "");
 const app = html.slice(html.indexOf("<!--APP-->") + 10, html.indexOf("<!--/APP-->"))
   .replace('<p class="foot">', '<p class="foot">Preview build: the game runs in your browser, so rarity comes from how well known each castaway is rather than other players, unlocking is free and ads are placeholders. ');
 const fonts = html.match(/<link rel="stylesheet" href="https:\/\/fonts[^>]+>/)[0];
