@@ -12,7 +12,7 @@ export function gameOptions(env = {}) {
     }),
     ads: {
       client: env.ADSENSE_CLIENT || null,
-      slots: { game: env.ADSENSE_SLOT_GAME || null, results: env.ADSENSE_SLOT_RESULTS || null },
+      slots: { game: env.ADSENSE_SLOT_GAME || null, results: env.ADSENSE_SLOT_RESULTS || null, rail: env.ADSENSE_SLOT_RAIL || null },
       placeholder: env.ADS_PLACEHOLDER === "1",
     },
   };

@@ -516,11 +516,15 @@ async function confirmPurchase(session) {
 }
 
 // ---- Ads (only when configured, never for anyone who has bought something)
+// The side rails only exist on screens wide enough to fit them beside the game.
 let adsLoaded = false;
+const wideScreen = matchMedia("(min-width: 1100px)");
+wideScreen.addEventListener("change", () => renderAds());
 function renderAds() {
   const ads = config.ads, paid = archive?.owned?.length > 0;
   for (const slot of document.querySelectorAll(".ad-slot")) {
-    const show = !!ads && !paid && !(slot.dataset.slot === "game" && view !== "game");
+    const rail = slot.classList.contains("ad-rail");
+    const show = !!ads && !paid && !(slot.dataset.slot === "game" && view !== "game") && (!rail || wideScreen.matches);
     slot.hidden = !show;
     if (!show || slot.dataset.filled) continue;
     slot.dataset.filled = "1";
@@ -531,11 +535,11 @@ function renderAds() {
         document.head.append(s); adsLoaded = true;
       }
       const ins = el("ins", "adsbygoogle");
-      ins.style.display = "block";
       ins.dataset.adClient = ads.client;
-      if (ads.slots?.[slot.dataset.slot]) ins.dataset.adSlot = ads.slots[slot.dataset.slot];
-      ins.dataset.adFormat = "auto";
-      ins.dataset.fullWidthResponsive = "true";
+      const slotId = ads.slots?.[rail ? "rail" : slot.dataset.slot];
+      if (slotId) ins.dataset.adSlot = slotId;
+      if (rail) Object.assign(ins.style, { display: "inline-block", width: "160px", height: "600px" });
+      else { ins.style.display = "block"; ins.dataset.adFormat = "auto"; ins.dataset.fullWidthResponsive = "true"; }
       slot.append(ins);
       try { (window.adsbygoogle = window.adsbygoogle || []).push({}); } catch {}
     } else {
