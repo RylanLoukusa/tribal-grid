@@ -542,7 +542,9 @@ function renderAds() {
   const ads = config.ads, paid = archive?.owned?.length > 0;
   for (const slot of document.querySelectorAll(".ad-slot")) {
     const rail = slot.classList.contains("ad-rail");
-    const show = !!ads && !paid && !(slot.dataset.slot === "game" && view !== "game") && (!rail || wideScreen.matches);
+    // A real ad needs its ad unit id; until one is set, leave the space out (Auto ads still runs).
+    const unit = ads?.slots?.[rail ? "rail" : slot.dataset.slot];
+    const show = !!ads && !paid && !(slot.dataset.slot === "game" && view !== "game") && (!rail || wideScreen.matches) && (!ads.client || !!unit);
     slot.hidden = !show;
     if (!show || slot.dataset.filled) continue;
     slot.dataset.filled = "1";
@@ -555,8 +557,7 @@ function renderAds() {
       }
       const ins = el("ins", "adsbygoogle");
       ins.dataset.adClient = ads.client;
-      const slotId = ads.slots?.[rail ? "rail" : slot.dataset.slot];
-      if (slotId) ins.dataset.adSlot = slotId;
+      ins.dataset.adSlot = unit;
       if (rail) Object.assign(ins.style, { display: "inline-block", width: "160px", height: "600px" });
       else { ins.style.display = "block"; ins.dataset.adFormat = "auto"; ins.dataset.fullWidthResponsive = "true"; }
       slot.append(ins);
