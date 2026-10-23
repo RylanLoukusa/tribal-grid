@@ -18,9 +18,10 @@ src/core/game.js  (the API: answer checking, rarity, results)
    ├── src/server/node.mjs    Node + node:sqlite          (local dev, tests)
    └── scripts/build-preview  in-browser, one HTML file   (try-it preview)
 public/  the site (no build step): index.html, app.js, styles.css
+src/core/pages.js  server-rendered guides, clue guide, past answers, sitemap.xml, robots.txt
 ```
 
-- **Answers stay on the server.** The client gets category labels and the name list for autocomplete, never which names fit. Results (every right answer, top picks) unlock only after that player finishes.
+- **Answers stay on the server.** The client gets category labels and the name list for autocomplete, never which names fit. Results (every right answer, top picks) unlock only after that player finishes. Once a day is over, its answers are public on `/grids/<date>`.
 - **Play state is server-side** per anonymous device ID. Right answers are free and can be swapped for a rarer one until the player submits; only wrong guesses count (9 per grid). Each castaway can be used once.
 - **Picks count when a grid is submitted** (or the 9th miss), so rarity reflects final answers, not ones people swapped out.
 - **Rarity** = share of players who picked that castaway in that cell. Day one has no crowd, so each cell starts from a fame prior (confessional count, seasons played, winning) worth 40 pretend players; real picks take over quickly. See `src/core/rarity.js`.

@@ -277,3 +277,17 @@ body.modal-open { overflow: hidden; }
 .legal main a:not(.btn) { color: var(--torch); }
 .legal .btn { display: inline-block; margin-top: 12px; text-decoration: none; }
 .foot a { color: inherit; }
+
+/* Content pages (pages.js) and the homepage intro */
+.intro { margin: 0; color: var(--mute); font-size: .9rem; max-width: 62ch; }
+.intro a, details p a { color: var(--torch); }
+.site-nav { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: .9rem; }
+.site-nav a { color: var(--mute); text-decoration: none; }
+.site-nav a:hover, .site-nav a[aria-current] { color: var(--bone); }
+.legal .muted, .legal li .muted { color: var(--mute); opacity: .8; font-size: .85em; }
+.legal li b, .legal p b { color: var(--bone); }
+.grid-list { list-style: none; padding: 0 !important; gap: 12px !important; }
+.grid-list a { color: var(--bone) !important; text-decoration: none; }
+.answer-list { margin: 8px 0 0; padding-left: 24px; columns: 2 220px; font-size: .88rem; }
+.answer-list li { break-inside: avoid; }
+.pager { display: flex; justify-content: space-between; gap: 12px; margin-top: 16px !important; }

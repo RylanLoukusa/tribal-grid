@@ -8,15 +8,18 @@ import { CATEGORY_BY_ID, fits, answersFor } from "./categories.js";
 import { generate } from "./generate.js";
 import { cellShares, toPercent, scoreOf } from "./rarity.js";
 import { todayId, isDateId, LAUNCH_DATE } from "./dates.js";
+import { layout, cluesPage, gridsIndexPage, gridPage, sitemap, ROBOTS, howToPlayPage, aboutPage, contactPage } from "./pages.js";
 import { PACKS, PRODUCTS, PRODUCT_IDS, BUNDLE_SEASON, SEPARATE_CENTS, inPool, owns, bundleOffer, bundleGrant, isGrant, priceFor, usd } from "./products.js";
 
 export const MAX_WRONG = 9;
 const PLAYER_RE = /^[A-Za-z0-9_-]{8,64}$/;
 const PACK_GRID_RE = /^pack-([a-z0-9-]+)-(\d{1,3})$/;
+// The server-rendered content pages (see pages.js). Everything else outside /api/ is the static site.
+export const isPagePath = p => /^\/(how-to-play|about|contact|clues|grids(\/\d{4}-\d{2}-\d{2})?)\/?$|^\/(sitemap\.xml|robots\.txt)$/.test(p);
 
 export function createGame({
   castaways, grids, packs = {}, store, now = () => new Date(), requireReview = false, showName = "Survivor",
-  payments = null, freeUnlock = false, ads = null, shop = true,
+  payments = null, freeUnlock = false, ads = null, shop = true, contactEmail = "hello@tribalgrid.app",
 }) {
   // shop off: no store at all. Past daily grids are free, packs are hidden, purchase routes 404.
   const people = castaways.map(p => ({ ...p, tagSet: new Set(p.tags) }));
@@ -249,6 +252,39 @@ export function createGame({
     }, { "cache-control": "no-store" });
   }
 
+  // ---- Content pages
+  const page = (body, maxAge = 3600, status = 200) => new Response(body, { status, headers: { "content-type": "text/html; charset=utf-8", "cache-control": `public, max-age=${maxAge}` } });
+  async function getPage(path) {
+    path = path.replace(/(.)\/$/, "$1");
+    const o = { adsClient: ads?.client || null };
+    const today = todayId(now());
+    const live = Object.values(grids).filter(g => g.id <= today && (!requireReview || g.reviewed)).sort((a, b) => b.id.localeCompare(a.id));
+    const withCats = g => ({ ...g, kind: "daily", ...cats(g) });
+    switch (path) {
+      case "/how-to-play": return page(howToPlayPage(o));
+      case "/about": return page(aboutPage({ ...o, castaways: people.length, seasons: new Set(people.flatMap(p => p.seasons)).size }));
+      case "/contact": return page(contactPage({ ...o, email: contactEmail }));
+      case "/clues": return page(cluesPage(people, o));
+      case "/grids": return page(gridsIndexPage(live.filter(g => g.id < today).map(withCats), o), 300);
+      case "/sitemap.xml": return new Response(sitemap(live.map(g => g.id)), { headers: { "content-type": "application/xml", "cache-control": "public, max-age=3600" } });
+      case "/robots.txt": return new Response(ROBOTS, { headers: { "content-type": "text/plain" } });
+    }
+    const i = live.findIndex(g => "/grids/" + g.id === path);
+    if (i < 0) return page(layout({ ...o, title: "Not found · Tribal Grid", description: "", path, body: `    <h2>Not found</h2>\n    <p>There's no grid for that day yet. See <a href="/grids">every past grid</a>.</p>` }), 300, 404);
+    const raw = { ...live[i], kind: "daily" }, g = withCats(raw), past = g.id < today;
+    let cells = [];
+    if (past) {
+      const picks = await picksFor(raw);
+      cells = Array.from({ length: 9 }, (_, k) => {
+        const ans = cellAnswers(raw, k), shares = cellShares(ans, picks[k]);
+        const answers = ans.map(p => ({ name: p.name, seasons: p.seasons, rarity: toPercent(shares.get(p.id)), picks: picks[k].get(p.id) || 0 }))
+          .sort((x, y) => y.picks - x.picks || y.rarity - x.rarity || x.name.localeCompare(y.name));
+        return { row: g.rows[Math.floor(k / 3)], col: g.cols[k % 3], answers };
+      });
+    }
+    return page(gridPage(g, { ...o, cells, past, players: await store.playerCount(g.id), prev: live[i + 1], next: live[i - 1] }), past ? 3600 : 300);
+  }
+
   function restoreCode() {
     const abc = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789", bytes = crypto.getRandomValues(new Uint8Array(10));
     return [...bytes].map(b => abc[b % abc.length]).join("");
@@ -316,6 +352,7 @@ export function createGame({
     const url = new URL(req.url);
     const route = req.method + " " + url.pathname;
     try {
+      if (req.method === "GET" && isPagePath(url.pathname)) return await getPage(url.pathname);
       switch (route) {
         case "GET /api/config": return await getConfig();
         case "GET /api/castaways": return json(publicList, { "cache-control": "public, max-age=3600" });

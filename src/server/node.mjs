@@ -7,7 +7,7 @@ import { readFile, readdir } from "node:fs/promises";
 import { DatabaseSync } from "node:sqlite";
 import { extname, join, normalize } from "node:path";
 import { fileURLToPath } from "node:url";
-import { createGame } from "../core/game.js";
+import { createGame, isPagePath } from "../core/game.js";
 import { sqlStore } from "../core/store-sql.js";
 import { shareHtml, parseShare } from "../core/share.js";
 import { gameOptions } from "./config.js";
@@ -47,7 +47,7 @@ export async function startServer({ port = 8787, dbPath = join(root, "data/local
   const server = createServer(async (req, res) => {
     try {
       const url = new URL(req.url, "http://localhost");
-      if (url.pathname.startsWith("/api/") || url.pathname === "/ads.txt") {
+      if (url.pathname.startsWith("/api/") || url.pathname === "/ads.txt" || isPagePath(url.pathname)) {
         const chunks = [];
         for await (const c of req) chunks.push(c);
         const r = await game.handle(new Request(new URL(url.pathname + url.search, `http://${req.headers.host || "localhost"}`), { method: req.method, headers: req.headers, body: ["GET", "HEAD"].includes(req.method) ? undefined : Buffer.concat(chunks) }));

@@ -236,3 +236,20 @@ test("bundle covers its own season's packs and credits what you own", () => {
   assert.ok(owns(owned("all:50"), "archive"));
   assert.ok(owns(owned("all"), "pack:returnees"), "legacy grants keep everything");
 });
+
+test("content pages are plain HTML, and past grid pages list every answer", async () => {
+  for (const p of ["/how-to-play", "/about", "/contact", "/clues", "/grids"]) {
+    const r = await fetch(base + p);
+    assert.equal(r.status, 200, p);
+    assert.match(r.headers.get("content-type"), /text\/html/);
+    assert.match(await r.text(), /<h2>/);
+  }
+  const past = await (await fetch(base + "/grids/" + PAST)).text();
+  const g = data.grids[PAST];
+  assert.ok(past.includes(answersIn(g, 0)[0].name.replace(/&/g, "&amp;").replace(/'/g, "'")), "answers on a past grid's page");
+  const today = await (await fetch(base + "/grids/" + GRID)).text();
+  assert.ok(!today.includes("Show all"), "no answers for today's grid");
+  assert.equal((await fetch(base + "/grids/" + ids.at(-1))).status, 404);
+  const map = await (await fetch(base + "/sitemap.xml")).text();
+  assert.ok(map.includes("/grids/" + PAST) && !map.includes("/grids/" + ids.at(-1)));
+});
