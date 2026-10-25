@@ -1,0 +1,27 @@
+{
+  "id": "2026-12-09",
+  "number": 60,
+  "show": "survivor",
+  "rows": [
+    "era-41-50",
+    "season-34",
+    "ind-immunity"
+  ],
+  "cols": [
+    "played-idol",
+    "age-under-25",
+    "out-with-advantage"
+  ],
+  "counts": [
+    30,
+    28,
+    25,
+    8,
+    4,
+    4,
+    58,
+    51,
+    16
+  ],
+  "reviewed": false
+}

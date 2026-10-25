@@ -1,0 +1,27 @@
+{
+  "id": "2026-12-28",
+  "number": 79,
+  "show": "survivor",
+  "rows": [
+    "state-new-york",
+    "era-21-40",
+    "second-chance-island"
+  ],
+  "cols": [
+    "first-boot",
+    "found-idol",
+    "tribe-red"
+  ],
+  "counts": [
+    4,
+    13,
+    13,
+    18,
+    75,
+    74,
+    5,
+    20,
+    31
+  ],
+  "reviewed": false
+}

@@ -1,0 +1,27 @@
+{
+  "id": "2026-12-16",
+  "number": 67,
+  "show": "survivor",
+  "rows": [
+    "age-under-25",
+    "man",
+    "state-california"
+  ],
+  "cols": [
+    "winner",
+    "one-season",
+    "top-three-boot"
+  ],
+  "counts": [
+    11,
+    133,
+    27,
+    27,
+    310,
+    60,
+    10,
+    158,
+    41
+  ],
+  "reviewed": false
+}

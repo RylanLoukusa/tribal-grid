@@ -1,0 +1,27 @@
+{
+  "id": "2026-12-25",
+  "number": 76,
+  "show": "survivor",
+  "rows": [
+    "age-under-25",
+    "era-41-50",
+    "season-34"
+  ],
+  "cols": [
+    "woman",
+    "winner",
+    "out-with-advantage"
+  ],
+  "counts": [
+    83,
+    11,
+    11,
+    85,
+    10,
+    25,
+    10,
+    5,
+    4
+  ],
+  "reviewed": false
+}

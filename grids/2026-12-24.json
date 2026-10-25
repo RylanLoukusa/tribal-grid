@@ -1,0 +1,27 @@
+{
+  "id": "2026-12-24",
+  "number": 75,
+  "show": "survivor",
+  "rows": [
+    "top-three-boot",
+    "one-season",
+    "returnee"
+  ],
+  "cols": [
+    "most-confessionals",
+    "final-four",
+    "ind-immunity-3"
+  ],
+  "counts": [
+    6,
+    13,
+    4,
+    16,
+    101,
+    20,
+    30,
+    81,
+    38
+  ],
+  "reviewed": false
+}

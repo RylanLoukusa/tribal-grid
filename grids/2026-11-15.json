@@ -1,0 +1,27 @@
+{
+  "id": "2026-11-15",
+  "number": 36,
+  "show": "survivor",
+  "rows": [
+    "season-34",
+    "era-31-40",
+    "era-21-30"
+  ],
+  "cols": [
+    "ind-immunity-3",
+    "second-chance-island",
+    "out-with-advantage"
+  ],
+  "counts": [
+    6,
+    4,
+    4,
+    26,
+    32,
+    15,
+    21,
+    51,
+    8
+  ],
+  "reviewed": false
+}

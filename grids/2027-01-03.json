@@ -1,0 +1,27 @@
+{
+  "id": "2027-01-03",
+  "number": 85,
+  "show": "survivor",
+  "rows": [
+    "season-20",
+    "zero-jury-votes",
+    "state-california"
+  ],
+  "cols": [
+    "era-41-50",
+    "era-31-40",
+    "tribe-blue"
+  ],
+  "counts": [
+    4,
+    6,
+    15,
+    9,
+    12,
+    9,
+    33,
+    48,
+    49
+  ],
+  "reviewed": false
+}

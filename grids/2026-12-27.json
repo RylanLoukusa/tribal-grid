@@ -1,0 +1,27 @@
+{
+  "id": "2026-12-27",
+  "number": 78,
+  "show": "survivor",
+  "rows": [
+    "season-50",
+    "played-idol",
+    "era-1-10"
+  ],
+  "cols": [
+    "ind-immunity",
+    "tribe-blue",
+    "three-plus"
+  ],
+  "counts": [
+    18,
+    14,
+    7,
+    58,
+    36,
+    14,
+    45,
+    46,
+    11
+  ],
+  "reviewed": false
+}

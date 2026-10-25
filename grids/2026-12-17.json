@@ -1,0 +1,27 @@
+{
+  "id": "2026-12-17",
+  "number": 68,
+  "show": "survivor",
+  "rows": [
+    "era-11-20",
+    "ind-immunity",
+    "era-41-50"
+  ],
+  "cols": [
+    "never-merged",
+    "woman",
+    "medevac-or-quit"
+  ],
+  "counts": [
+    63,
+    80,
+    12,
+    5,
+    99,
+    8,
+    54,
+    85,
+    8
+  ],
+  "reviewed": false
+}

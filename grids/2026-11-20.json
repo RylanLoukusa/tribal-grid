@@ -1,0 +1,27 @@
+{
+  "id": "2026-11-20",
+  "number": 41,
+  "show": "survivor",
+  "rows": [
+    "era-31-40",
+    "tribe-orange",
+    "era-21-30"
+  ],
+  "cols": [
+    "state-new-york",
+    "never-merged",
+    "three-plus"
+  ],
+  "counts": [
+    24,
+    41,
+    19,
+    15,
+    55,
+    7,
+    19,
+    59,
+    17
+  ],
+  "reviewed": false
+}

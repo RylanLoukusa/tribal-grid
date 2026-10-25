@@ -1,0 +1,27 @@
+{
+  "id": "2026-12-06",
+  "number": 57,
+  "show": "survivor",
+  "rows": [
+    "jury",
+    "era-11-20",
+    "age-40-plus"
+  ],
+  "cols": [
+    "tribe-yellow",
+    "most-confessionals",
+    "first-boot"
+  ],
+  "counts": [
+    80,
+    25,
+    6,
+    50,
+    13,
+    10,
+    33,
+    6,
+    17
+  ],
+  "reviewed": false
+}

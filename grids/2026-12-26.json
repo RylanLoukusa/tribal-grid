@@ -1,0 +1,27 @@
+{
+  "id": "2026-12-26",
+  "number": 77,
+  "show": "survivor",
+  "rows": [
+    "finalist",
+    "jury",
+    "never-merged"
+  ],
+  "cols": [
+    "man",
+    "state-california",
+    "season-27"
+  ],
+  "counts": [
+    66,
+    30,
+    6,
+    198,
+    102,
+    13,
+    119,
+    75,
+    5
+  ],
+  "reviewed": false
+}

@@ -1,0 +1,27 @@
+{
+  "id": "2026-11-26",
+  "number": 47,
+  "show": "survivor",
+  "rows": [
+    "tribe-green",
+    "tribe-orange",
+    "returnee-season"
+  ],
+  "cols": [
+    "era-11-20",
+    "winner",
+    "state-florida"
+  ],
+  "counts": [
+    20,
+    6,
+    4,
+    28,
+    10,
+    9,
+    45,
+    31,
+    13
+  ],
+  "reviewed": false
+}

@@ -1,0 +1,27 @@
+{
+  "id": "2026-12-13",
+  "number": 64,
+  "show": "survivor",
+  "rows": [
+    "swapped",
+    "out-with-advantage",
+    "age-40-plus"
+  ],
+  "cols": [
+    "era-41-50",
+    "woman",
+    "tribe-green"
+  ],
+  "counts": [
+    75,
+    222,
+    37,
+    25,
+    18,
+    5,
+    31,
+    81,
+    16
+  ],
+  "reviewed": false
+}

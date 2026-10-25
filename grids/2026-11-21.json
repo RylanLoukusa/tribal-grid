@@ -1,0 +1,27 @@
+{
+  "id": "2026-11-21",
+  "number": 42,
+  "show": "survivor",
+  "rows": [
+    "final-four",
+    "season-27",
+    "state-florida"
+  ],
+  "cols": [
+    "one-season",
+    "returnee",
+    "era-11-20"
+  ],
+  "counts": [
+    101,
+    81,
+    44,
+    7,
+    13,
+    5,
+    35,
+    13,
+    8
+  ],
+  "reviewed": false
+}

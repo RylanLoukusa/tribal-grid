@@ -1,0 +1,27 @@
+{
+  "id": "2026-12-05",
+  "number": 56,
+  "show": "survivor",
+  "rows": [
+    "season-16",
+    "ind-immunity",
+    "age-under-25"
+  ],
+  "cols": [
+    "played-idol",
+    "final-four",
+    "three-plus"
+  ],
+  "counts": [
+    5,
+    8,
+    6,
+    58,
+    127,
+    24,
+    14,
+    40,
+    10
+  ],
+  "reviewed": false
+}

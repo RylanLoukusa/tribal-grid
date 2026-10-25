@@ -1,0 +1,27 @@
+{
+  "id": "2026-11-28",
+  "number": 49,
+  "show": "survivor",
+  "rows": [
+    "age-under-25",
+    "medevac-or-quit",
+    "era-21-40"
+  ],
+  "cols": [
+    "finalist",
+    "one-season",
+    "state-california"
+  ],
+  "counts": [
+    26,
+    133,
+    45,
+    4,
+    27,
+    9,
+    69,
+    239,
+    87
+  ],
+  "reviewed": false
+}

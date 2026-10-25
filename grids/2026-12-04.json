@@ -1,0 +1,27 @@
+{
+  "id": "2026-12-04",
+  "number": 55,
+  "show": "survivor",
+  "rows": [
+    "era-21-40",
+    "tribe-green",
+    "tribe-purple"
+  ],
+  "cols": [
+    "winner",
+    "top-three-boot",
+    "finalist-never-won"
+  ],
+  "counts": [
+    29,
+    56,
+    40,
+    6,
+    12,
+    10,
+    8,
+    20,
+    16
+  ],
+  "reviewed": false
+}

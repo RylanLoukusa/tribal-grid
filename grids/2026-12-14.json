@@ -1,0 +1,27 @@
+{
+  "id": "2026-12-14",
+  "number": 65,
+  "show": "survivor",
+  "rows": [
+    "final-four",
+    "season-50",
+    "three-plus"
+  ],
+  "cols": [
+    "non-idol-advantage",
+    "played-idol",
+    "era-31-40"
+  ],
+  "counts": [
+    29,
+    56,
+    58,
+    9,
+    7,
+    8,
+    7,
+    14,
+    19
+  ],
+  "reviewed": false
+}

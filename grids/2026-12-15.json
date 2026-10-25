@@ -1,0 +1,27 @@
+{
+  "id": "2026-12-15",
+  "number": 66,
+  "show": "survivor",
+  "rows": [
+    "found-idol",
+    "ind-immunity-3",
+    "era-21-30"
+  ],
+  "cols": [
+    "state-new-york",
+    "returnee",
+    "jury"
+  ],
+  "counts": [
+    13,
+    48,
+    87,
+    4,
+    38,
+    38,
+    19,
+    49,
+    93
+  ],
+  "reviewed": false
+}

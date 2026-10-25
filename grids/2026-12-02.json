@@ -1,0 +1,27 @@
+{
+  "id": "2026-12-02",
+  "number": 53,
+  "show": "survivor",
+  "rows": [
+    "returnee-season",
+    "second-chance-island",
+    "tribe-red"
+  ],
+  "cols": [
+    "era-1-10",
+    "never-merged",
+    "state-new-york"
+  ],
+  "counts": [
+    29,
+    19,
+    22,
+    5,
+    17,
+    7,
+    34,
+    54,
+    13
+  ],
+  "reviewed": false
+}

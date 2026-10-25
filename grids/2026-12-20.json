@@ -1,0 +1,27 @@
+{
+  "id": "2026-12-20",
+  "number": 71,
+  "show": "survivor",
+  "rows": [
+    "one-season",
+    "season-20",
+    "man"
+  ],
+  "cols": [
+    "era-1-10",
+    "state-florida",
+    "jury"
+  ],
+  "counts": [
+    119,
+    35,
+    275,
+    7,
+    4,
+    16,
+    75,
+    22,
+    198
+  ],
+  "reviewed": false
+}

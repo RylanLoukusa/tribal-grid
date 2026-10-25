@@ -1,0 +1,27 @@
+{
+  "id": "2026-12-30",
+  "number": 81,
+  "show": "survivor",
+  "rows": [
+    "finalist",
+    "non-idol-advantage",
+    "one-season"
+  ],
+  "cols": [
+    "out-with-advantage",
+    "tribe-orange",
+    "era-41-50"
+  ],
+  "counts": [
+    6,
+    24,
+    36,
+    18,
+    18,
+    52,
+    33,
+    123,
+    148
+  ],
+  "reviewed": false
+}

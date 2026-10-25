@@ -1,0 +1,27 @@
+{
+  "id": "2026-12-01",
+  "number": 52,
+  "show": "survivor",
+  "rows": [
+    "jury",
+    "season-34",
+    "swapped"
+  ],
+  "cols": [
+    "era-11-20",
+    "out-with-advantage",
+    "ind-immunity-3"
+  ],
+  "counts": [
+    83,
+    30,
+    38,
+    4,
+    4,
+    6,
+    110,
+    26,
+    47
+  ],
+  "reviewed": false
+}

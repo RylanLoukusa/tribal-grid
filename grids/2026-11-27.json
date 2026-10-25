@@ -1,0 +1,27 @@
+{
+  "id": "2026-11-27",
+  "number": 48,
+  "show": "survivor",
+  "rows": [
+    "non-idol-advantage",
+    "woman",
+    "returnee"
+  ],
+  "cols": [
+    "era-41-50",
+    "age-40-plus",
+    "out-with-advantage"
+  ],
+  "counts": [
+    52,
+    10,
+    18,
+    85,
+    81,
+    18,
+    25,
+    25,
+    13
+  ],
+  "reviewed": false
+}

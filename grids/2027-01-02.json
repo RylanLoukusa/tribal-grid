@@ -1,0 +1,27 @@
+{
+  "id": "2027-01-02",
+  "number": 84,
+  "show": "survivor",
+  "rows": [
+    "age-40-plus",
+    "man",
+    "jury"
+  ],
+  "cols": [
+    "era-21-40",
+    "season-16",
+    "season-27"
+  ],
+  "counts": [
+    73,
+    5,
+    4,
+    161,
+    10,
+    10,
+    180,
+    14,
+    13
+  ],
+  "reviewed": false
+}

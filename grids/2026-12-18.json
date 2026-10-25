@@ -1,0 +1,27 @@
+{
+  "id": "2026-12-18",
+  "number": 69,
+  "show": "survivor",
+  "rows": [
+    "finalist-never-won",
+    "played-idol",
+    "non-idol-advantage"
+  ],
+  "cols": [
+    "most-confessionals",
+    "era-1-20",
+    "age-40-plus"
+  ],
+  "counts": [
+    16,
+    25,
+    24,
+    24,
+    14,
+    19,
+    11,
+    6,
+    10
+  ],
+  "reviewed": false
+}

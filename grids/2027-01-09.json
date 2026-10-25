@@ -1,0 +1,27 @@
+{
+  "id": "2027-01-09",
+  "number": 91,
+  "show": "survivor",
+  "rows": [
+    "man",
+    "out-with-advantage",
+    "era-1-20"
+  ],
+  "cols": [
+    "tribe-red",
+    "jury",
+    "season-50"
+  ],
+  "counts": [
+    85,
+    198,
+    12,
+    10,
+    30,
+    5,
+    71,
+    146,
+    6
+  ],
+  "reviewed": false
+}

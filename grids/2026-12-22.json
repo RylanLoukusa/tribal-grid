@@ -1,0 +1,27 @@
+{
+  "id": "2026-12-22",
+  "number": 73,
+  "show": "survivor",
+  "rows": [
+    "played-idol",
+    "non-idol-advantage",
+    "finalist-never-won"
+  ],
+  "cols": [
+    "era-1-20",
+    "three-plus",
+    "tribe-blue"
+  ],
+  "counts": [
+    14,
+    14,
+    36,
+    6,
+    7,
+    22,
+    25,
+    6,
+    30
+  ],
+  "reviewed": false
+}

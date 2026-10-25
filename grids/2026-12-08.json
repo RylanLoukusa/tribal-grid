@@ -1,0 +1,27 @@
+{
+  "id": "2026-12-08",
+  "number": 59,
+  "show": "survivor",
+  "rows": [
+    "woman",
+    "era-21-40",
+    "winner"
+  ],
+  "cols": [
+    "returnee",
+    "state-florida",
+    "state-california"
+  ],
+  "counts": [
+    58,
+    26,
+    95,
+    82,
+    30,
+    87,
+    31,
+    4,
+    10
+  ],
+  "reviewed": false
+}

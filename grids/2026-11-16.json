@@ -1,0 +1,27 @@
+{
+  "id": "2026-11-16",
+  "number": 37,
+  "show": "survivor",
+  "rows": [
+    "state-texas",
+    "final-four",
+    "tribe-yellow"
+  ],
+  "cols": [
+    "era-11-20",
+    "returnee",
+    "played-idol"
+  ],
+  "counts": [
+    7,
+    7,
+    5,
+    44,
+    81,
+    56,
+    50,
+    36,
+    19
+  ],
+  "reviewed": false
+}

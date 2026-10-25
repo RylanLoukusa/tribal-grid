@@ -1,0 +1,27 @@
+{
+  "id": "2026-12-23",
+  "number": 74,
+  "show": "survivor",
+  "rows": [
+    "season-37",
+    "found-idol",
+    "age-40-plus"
+  ],
+  "cols": [
+    "swapped",
+    "ind-immunity",
+    "returnee-season"
+  ],
+  "counts": [
+    16,
+    8,
+    4,
+    97,
+    69,
+    48,
+    93,
+    45,
+    28
+  ],
+  "reviewed": false
+}

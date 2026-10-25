@@ -1,0 +1,27 @@
+{
+  "id": "2026-11-24",
+  "number": 45,
+  "show": "survivor",
+  "rows": [
+    "era-21-30",
+    "age-under-25",
+    "state-texas"
+  ],
+  "cols": [
+    "never-merged",
+    "jury",
+    "finalist-never-won"
+  ],
+  "counts": [
+    59,
+    93,
+    25,
+    53,
+    86,
+    15,
+    18,
+    24,
+    5
+  ],
+  "reviewed": false
+}

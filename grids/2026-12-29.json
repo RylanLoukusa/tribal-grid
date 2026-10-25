@@ -1,0 +1,27 @@
+{
+  "id": "2026-12-29",
+  "number": 80,
+  "show": "survivor",
+  "rows": [
+    "woman",
+    "medevac-or-quit",
+    "most-confessionals"
+  ],
+  "cols": [
+    "returnee",
+    "state-texas",
+    "returnee-season"
+  ],
+  "counts": [
+    58,
+    24,
+    72,
+    14,
+    4,
+    13,
+    30,
+    4,
+    29
+  ],
+  "reviewed": false
+}

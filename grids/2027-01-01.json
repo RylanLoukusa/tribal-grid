@@ -1,0 +1,27 @@
+{
+  "id": "2027-01-01",
+  "number": 83,
+  "show": "survivor",
+  "rows": [
+    "tribe-green",
+    "season-50",
+    "era-11-20"
+  ],
+  "cols": [
+    "found-idol",
+    "winner",
+    "top-three-boot"
+  ],
+  "counts": [
+    11,
+    6,
+    12,
+    11,
+    4,
+    4,
+    26,
+    13,
+    34
+  ],
+  "reviewed": false
+}

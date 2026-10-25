@@ -1,0 +1,27 @@
+{
+  "id": "2026-11-22",
+  "number": 43,
+  "show": "survivor",
+  "rows": [
+    "top-three-boot",
+    "swapped",
+    "finalist"
+  ],
+  "cols": [
+    "ind-immunity",
+    "medevac-or-quit",
+    "out-with-advantage"
+  ],
+  "counts": [
+    14,
+    4,
+    6,
+    178,
+    27,
+    26,
+    97,
+    4,
+    6
+  ],
+  "reviewed": false
+}

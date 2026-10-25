@@ -1,0 +1,27 @@
+{
+  "id": "2026-11-25",
+  "number": 46,
+  "show": "survivor",
+  "rows": [
+    "era-1-20",
+    "three-plus",
+    "first-boot"
+  ],
+  "cols": [
+    "tribe-red",
+    "final-four",
+    "tribe-yellow"
+  ],
+  "counts": [
+    71,
+    79,
+    91,
+    20,
+    24,
+    11,
+    8,
+    4,
+    14
+  ],
+  "reviewed": false
+}

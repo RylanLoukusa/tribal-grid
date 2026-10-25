@@ -1,0 +1,27 @@
+{
+  "id": "2027-01-04",
+  "number": 86,
+  "show": "survivor",
+  "rows": [
+    "tribe-red",
+    "era-1-10",
+    "season-28"
+  ],
+  "cols": [
+    "swapped",
+    "finalist",
+    "woman"
+  ],
+  "counts": [
+    107,
+    38,
+    70,
+    82,
+    23,
+    75,
+    14,
+    5,
+    9
+  ],
+  "reviewed": false
+}

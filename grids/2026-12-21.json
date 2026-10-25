@@ -1,0 +1,27 @@
+{
+  "id": "2026-12-21",
+  "number": 72,
+  "show": "survivor",
+  "rows": [
+    "era-11-20",
+    "age-under-25",
+    "era-21-40"
+  ],
+  "cols": [
+    "medevac-or-quit",
+    "never-merged",
+    "state-new-york"
+  ],
+  "counts": [
+    12,
+    63,
+    12,
+    5,
+    53,
+    9,
+    22,
+    100,
+    41
+  ],
+  "reviewed": false
+}

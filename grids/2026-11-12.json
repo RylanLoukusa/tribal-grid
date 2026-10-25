@@ -1,0 +1,27 @@
+{
+  "id": "2026-11-12",
+  "number": 33,
+  "show": "survivor",
+  "rows": [
+    "never-merged",
+    "swapped",
+    "returnee"
+  ],
+  "cols": [
+    "non-idol-advantage",
+    "state-florida",
+    "state-california"
+  ],
+  "counts": [
+    7,
+    16,
+    75,
+    48,
+    30,
+    130,
+    18,
+    13,
+    40
+  ],
+  "reviewed": false
+}

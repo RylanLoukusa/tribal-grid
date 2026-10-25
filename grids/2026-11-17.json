@@ -1,0 +1,27 @@
+{
+  "id": "2026-11-17",
+  "number": 38,
+  "show": "survivor",
+  "rows": [
+    "non-idol-advantage",
+    "era-1-10",
+    "found-idol"
+  ],
+  "cols": [
+    "winner",
+    "tribe-green",
+    "season-40"
+  ],
+  "counts": [
+    11,
+    8,
+    6,
+    11,
+    13,
+    4,
+    27,
+    11,
+    16
+  ],
+  "reviewed": false
+}

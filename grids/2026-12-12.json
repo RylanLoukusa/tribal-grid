@@ -1,0 +1,27 @@
+{
+  "id": "2026-12-12",
+  "number": 63,
+  "show": "survivor",
+  "rows": [
+    "winner",
+    "state-florida",
+    "returnee-season"
+  ],
+  "cols": [
+    "top-three-boot",
+    "man",
+    "era-11-20"
+  ],
+  "counts": [
+    5,
+    27,
+    13,
+    10,
+    22,
+    8,
+    26,
+    70,
+    45
+  ],
+  "reviewed": false
+}

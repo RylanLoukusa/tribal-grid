@@ -1,0 +1,27 @@
+{
+  "id": "2026-11-29",
+  "number": 50,
+  "show": "survivor",
+  "rows": [
+    "top-three-boot",
+    "man",
+    "found-idol"
+  ],
+  "cols": [
+    "three-plus",
+    "tribe-purple",
+    "era-1-20"
+  ],
+  "counts": [
+    8,
+    20,
+    65,
+    16,
+    61,
+    151,
+    16,
+    32,
+    26
+  ],
+  "reviewed": false
+}

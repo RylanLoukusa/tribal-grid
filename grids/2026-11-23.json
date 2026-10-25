@@ -1,0 +1,27 @@
+{
+  "id": "2026-11-23",
+  "number": 44,
+  "show": "survivor",
+  "rows": [
+    "state-california",
+    "era-1-10",
+    "most-confessionals"
+  ],
+  "cols": [
+    "ind-immunity-3",
+    "tribe-purple",
+    "season-20"
+  ],
+  "counts": [
+    13,
+    48,
+    7,
+    11,
+    15,
+    7,
+    16,
+    12,
+    10
+  ],
+  "reviewed": false
+}

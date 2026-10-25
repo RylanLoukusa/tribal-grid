@@ -1,0 +1,27 @@
+{
+  "id": "2026-11-13",
+  "number": 34,
+  "show": "survivor",
+  "rows": [
+    "season-8",
+    "era-21-40",
+    "finalist"
+  ],
+  "cols": [
+    "age-under-25",
+    "most-confessionals",
+    "three-plus"
+  ],
+  "counts": [
+    4,
+    7,
+    8,
+    71,
+    25,
+    25,
+    26,
+    33,
+    18
+  ],
+  "reviewed": false
+}

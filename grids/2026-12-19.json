@@ -1,0 +1,27 @@
+{
+  "id": "2026-12-19",
+  "number": 70,
+  "show": "survivor",
+  "rows": [
+    "tribe-yellow",
+    "season-28",
+    "ind-immunity-3"
+  ],
+  "cols": [
+    "finalist",
+    "returnee-season",
+    "found-idol"
+  ],
+  "counts": [
+    33,
+    34,
+    20,
+    5,
+    6,
+    4,
+    40,
+    38,
+    26
+  ],
+  "reviewed": false
+}

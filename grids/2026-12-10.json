@@ -1,0 +1,27 @@
+{
+  "id": "2026-12-10",
+  "number": 61,
+  "show": "survivor",
+  "rows": [
+    "tribe-yellow",
+    "second-chance-island",
+    "ind-immunity-3"
+  ],
+  "cols": [
+    "final-four",
+    "season-31",
+    "era-31-40"
+  ],
+  "counts": [
+    42,
+    4,
+    28,
+    27,
+    4,
+    32,
+    51,
+    7,
+    26
+  ],
+  "reviewed": false
+}

@@ -1,0 +1,27 @@
+{
+  "id": "2026-11-14",
+  "number": 35,
+  "show": "survivor",
+  "rows": [
+    "returnee-season",
+    "era-1-20",
+    "top-three-boot"
+  ],
+  "cols": [
+    "jury",
+    "medevac-or-quit",
+    "tribe-red"
+  ],
+  "counts": [
+    103,
+    13,
+    54,
+    146,
+    17,
+    71,
+    17,
+    4,
+    33
+  ],
+  "reviewed": false
+}

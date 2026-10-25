@@ -1,0 +1,27 @@
+{
+  "id": "2027-01-05",
+  "number": 87,
+  "show": "survivor",
+  "rows": [
+    "finalist-never-won",
+    "medevac-or-quit",
+    "out-with-advantage"
+  ],
+  "cols": [
+    "one-season",
+    "era-11-20",
+    "era-21-30"
+  ],
+  "counts": [
+    49,
+    15,
+    25,
+    27,
+    12,
+    12,
+    33,
+    7,
+    8
+  ],
+  "reviewed": false
+}

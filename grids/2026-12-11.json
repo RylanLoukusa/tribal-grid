@@ -1,0 +1,27 @@
+{
+  "id": "2026-12-11",
+  "number": 62,
+  "show": "survivor",
+  "rows": [
+    "era-21-30",
+    "finalist",
+    "one-season"
+  ],
+  "cols": [
+    "tribe-purple",
+    "found-idol",
+    "medevac-or-quit"
+  ],
+  "counts": [
+    35,
+    33,
+    12,
+    24,
+    49,
+    4,
+    76,
+    83,
+    27
+  ],
+  "reviewed": false
+}

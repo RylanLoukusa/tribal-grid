@@ -1,0 +1,27 @@
+{
+  "id": "2027-01-08",
+  "number": 90,
+  "show": "survivor",
+  "rows": [
+    "returnee-season",
+    "swapped",
+    "zero-jury-votes"
+  ],
+  "cols": [
+    "tribe-yellow",
+    "found-idol",
+    "era-41-50"
+  ],
+  "counts": [
+    34,
+    48,
+    24,
+    111,
+    97,
+    75,
+    10,
+    11,
+    9
+  ],
+  "reviewed": false
+}

@@ -1,0 +1,27 @@
+{
+  "id": "2026-12-03",
+  "number": 54,
+  "show": "survivor",
+  "rows": [
+    "lost-fire",
+    "state-texas",
+    "zero-jury-votes"
+  ],
+  "cols": [
+    "man",
+    "one-season",
+    "era-1-20"
+  ],
+  "counts": [
+    9,
+    15,
+    4,
+    24,
+    41,
+    18,
+    17,
+    21,
+    8
+  ],
+  "reviewed": false
+}

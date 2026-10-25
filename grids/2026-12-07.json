@@ -1,0 +1,27 @@
+{
+  "id": "2026-12-07",
+  "number": 58,
+  "show": "survivor",
+  "rows": [
+    "finalist",
+    "non-idol-advantage",
+    "never-merged"
+  ],
+  "cols": [
+    "found-idol",
+    "state-texas",
+    "era-21-30"
+  ],
+  "counts": [
+    49,
+    7,
+    39,
+    29,
+    4,
+    5,
+    13,
+    18,
+    59
+  ],
+  "reviewed": false
+}

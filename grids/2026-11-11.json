@@ -1,0 +1,27 @@
+{
+  "id": "2026-11-11",
+  "number": 32,
+  "show": "survivor",
+  "rows": [
+    "one-season",
+    "state-new-york",
+    "tribe-purple"
+  ],
+  "cols": [
+    "winner",
+    "ind-immunity-3",
+    "era-11-20"
+  ],
+  "counts": [
+    17,
+    20,
+    124,
+    5,
+    4,
+    12,
+    8,
+    18,
+    29
+  ],
+  "reviewed": false
+}
