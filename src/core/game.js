@@ -352,6 +352,9 @@ export function createGame({
     const url = new URL(req.url);
     const route = req.method + " " + url.pathname;
     try {
+      // One address per page: /grids/ and the like redirect to the version without the slash.
+      if (req.method === "GET" && isPagePath(url.pathname) && url.pathname.length > 1 && url.pathname.endsWith("/"))
+        return new Response(null, { status: 301, headers: { location: url.pathname.slice(0, -1) + url.search } });
       if (req.method === "GET" && isPagePath(url.pathname)) return await getPage(url.pathname);
       switch (route) {
         case "GET /api/config": return await getConfig();

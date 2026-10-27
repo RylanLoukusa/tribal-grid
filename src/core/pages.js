@@ -48,7 +48,7 @@ ${body}
 </html>`;
 }
 
-export const FOOTER = `<p class="foot">A fan-made game. Not affiliated with CBS, Paramount or Survivor. · <a href="/how-to-play">How to play</a> · <a href="/grids">Past answers</a> · <a href="/clues">Clue guide</a> · <a href="/about">About</a> · <a href="/contact">Contact</a> · <a href="/privacy.html">Privacy</a></p>`;
+export const FOOTER = `<p class="foot">A fan-made game. Not affiliated with CBS, Paramount or Survivor. · <a href="/how-to-play">How to play</a> · <a href="/grids">Past answers</a> · <a href="/clues">Clue guide</a> · <a href="/about">About</a> · <a href="/contact">Contact</a> · <a href="/privacy">Privacy</a></p>`;
 
 // ---- Clue guide
 
@@ -157,7 +157,7 @@ export function gridPage(g, { cells, players, past, prev, next, adsClient }) {
 }
 
 export function sitemap(gridIds) {
-  const urls = ["/", "/how-to-play", "/grids", "/clues", "/about", "/contact", "/privacy.html", ...gridIds.map(id => "/grids/" + id)];
+  const urls = ["/", "/how-to-play", "/grids", "/clues", "/about", "/contact", "/privacy", ...gridIds.map(id => "/grids/" + id)];
   return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map(u => `  <url><loc>${SITE}${u}</loc></url>`).join("\n")}\n</urlset>\n`;
 }
 
@@ -246,6 +246,6 @@ export function contactPage({ adsClient, email }) {
       <li><b>Clue ideas.</b> Suggest a new row or column. The best ones are clear-cut facts with 10 or more castaways who fit.</li>
       <li><b>Bugs.</b> Say what device and browser you were using and what happened.</li>
     </ul>
-    <p>Read our <a href="/privacy.html">privacy policy</a> for what we store.</p>`;
+    <p>Read our <a href="/privacy">privacy policy</a> for what we store.</p>`;
   return layout({ title: "Contact · Tribal Grid", description: "Report a wrong answer, suggest a clue or ask about your data.", path: "/contact", body, adsClient });
 }

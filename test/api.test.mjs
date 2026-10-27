@@ -253,3 +253,12 @@ test("content pages are plain HTML, and past grid pages list every answer", asyn
   const map = await (await fetch(base + "/sitemap.xml")).text();
   assert.ok(map.includes("/grids/" + PAST) && !map.includes("/grids/" + ids.at(-1)));
 });
+
+test("pages have one address each", async () => {
+  const r = await fetch(base + "/grids/", { redirect: "manual" });
+  assert.equal(r.status, 301);
+  assert.equal(r.headers.get("location"), "/grids");
+  assert.equal((await fetch(base + "/privacy")).status, 200);
+  assert.match(await (await fetch(base + "/")).text(), /<link rel="canonical" href="https:\/\/tribalgrid.app\/">/);
+  assert.ok(!(await (await fetch(base + "/sitemap.xml")).text()).includes(".html"));
+});

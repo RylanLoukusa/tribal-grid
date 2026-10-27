@@ -64,9 +64,10 @@ export async function startServer({ port = 8787, dbPath = join(root, "data/local
       }
       let path = normalize(decodeURIComponent(url.pathname)).replace(/^(\.\.[/\\])+/, "");
       if (path.endsWith("/")) path += "index.html";
-      const file = join(root, "public", path);
+      let file = join(root, "public", path);
       if (!file.startsWith(join(root, "public"))) { res.writeHead(403); return res.end(); }
-      const body = await readFile(file).catch(() => null);
+      // Like Cloudflare's asset handling: /privacy serves privacy.html.
+      const body = await readFile(file).catch(() => extname(file) ? null : readFile(file + ".html").then(b => (file += ".html", b), () => null));
       if (!body) { res.writeHead(404, { "content-type": "text/plain" }); return res.end("Not found"); }
       res.writeHead(200, { "content-type": types[extname(file)] || "application/octet-stream" });
       res.end(body);
